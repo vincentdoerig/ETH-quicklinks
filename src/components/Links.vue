@@ -175,7 +175,10 @@
     <footer>
       <div class="max-w-3xl px-4 mx-auto sm:px-6 lg:px-8 lg:max-w-7xl">
         <div class="py-8 text-sm text-center text-gray-500 border-t border-gray-200 sm:text-left">
-          <span class="block sm:inline">&copy; 2021 Vincent Dörig</span> <span class="block sm:inline">No guarantee for completeness or accuracy.</span>
+          <span class="block sm:inline">&copy; 2021 Vincent Dörig</span> <span class="block sm:inline">No guarantee for completeness or accuracy.</span> <a
+            href="https://github.com/vincentdoerig/ETH-quicklinks"
+            class="block text-xs text-gray-700 underline sm:inline"
+          >Open Source &hearts;.</a>
         </div>
       </div>
     </footer>
