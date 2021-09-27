@@ -40,9 +40,9 @@
                   Quick links
                 </h2>
                 <div
-                  v-for="(action, actionIdx) in actions"
+                  v-for="(action, actionIdx) in mainLinks"
                   :key="action.name"
-                  :class="[actionIdx === 0 ? 'rounded-tl-lg rounded-tr-lg sm:rounded-tr-none' : '', actionIdx === 1 ? 'sm:rounded-tr-lg' : '', actionIdx === actions.length - 2 ? 'sm:rounded-bl-lg' : '', actionIdx === actions.length - 1 ? 'rounded-bl-lg rounded-br-lg sm:rounded-bl-none' : '', 'relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-cyan-500']"
+                  :class="[actionIdx === 0 ? 'rounded-tl-lg rounded-tr-lg sm:rounded-tr-none' : '', actionIdx === 1 ? 'sm:rounded-tr-lg' : '', actionIdx === mainLinks.length - 2 ? 'sm:rounded-bl-lg' : '', actionIdx === mainLinks.length - 1 ? 'rounded-bl-lg rounded-br-lg sm:rounded-bl-none' : '', 'relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-cyan-500']"
                 >
                   <div>
                     <h3 class="text-lg font-medium">
@@ -121,11 +121,11 @@
           <!-- Right column -->
           <div class="grid grid-cols-1 gap-4">
             <!-- Übungen -->
-            <section aria-labelledby="announcements-title">
+            <section aria-labelledby="exercises-title">
               <div class="overflow-hidden bg-white rounded-lg shadow">
                 <div class="p-6">
                   <h2
-                    id="announcements-title"
+                    id="exercises-title"
                     class="text-base font-medium text-gray-900"
                   >
                     Übungen
@@ -136,14 +136,14 @@
                       class="-my-5 divide-y divide-gray-200"
                     >
                       <li
-                        v-for="announcement in announcements"
-                        :key="announcement.id"
+                        v-for="exercise in exercises"
+                        :key="exercise.id"
                         class="py-5"
                       >
                         <div class="relative focus-within:ring-2 focus-within:ring-cyan-500">
                           <h3 class="text-sm font-semibold text-gray-800">
                             <a
-                              :href="announcement.href"
+                              :href="exercise.href"
                               class="hover:underline focus:outline-none"
                             >
                               <!-- Extend touch target to entire panel -->
@@ -151,15 +151,15 @@
                                 class="absolute inset-0"
                                 aria-hidden="true"
                               />
-                              {{ announcement.title }}
+                              {{ exercise.title }}
                             </a>
                           </h3>
                           <p class="mt-1 text-sm text-gray-600">
-                            Abgabe: <span class="font-bold text-gray-800">{{ announcement.date }}</span> <br>
+                            Abgabe: <span class="font-bold text-gray-800">{{ exercise.date }}</span> <br>
                             <a
                               class="text-black underline"
-                              :href="announcement.href"
-                            >{{ announcement.href }}</a> {{ announcement.location }}
+                              :href="exercise.href"
+                            >{{ exercise.href }}</a> {{ exercise.location }}
                           </p>
                         </div>
                       </li>
@@ -186,11 +186,10 @@
 import { defineComponent } from 'vue'
 
 const user = {
-  name: 'Vincent Dörig',
+  name: '',
 }
-const actions = [
+const mainLinks = [
   {
-    icon: '∀',
     name: 'Diskrete Mathematik',
     href: 'https://crypto.ethz.ch/teaching/DM21/',
     links: [
@@ -200,7 +199,6 @@ const actions = [
     ],
   },
   {
-    icon: 'i',
     name: 'Lineare Algebra',
     href: 'https://igl.ethz.ch/teaching/linear-algebra/la2021/',
     links: [
@@ -208,7 +206,6 @@ const actions = [
     ],
   },
   {
-    icon: 'x',
     name: 'Einführung in die Programmierung',
     href: 'https://www.lst.inf.ethz.ch/education/einfuehrung-in-die-programmierung-i--252-0027-.html#tab-accordion1-item4-content',
     links: [
@@ -217,7 +214,6 @@ const actions = [
     ],
   },
   {
-    icon: 'O()',
     name: 'Algorithmen und Datenstrukturen',
     href: 'https://cadmo.ethz.ch/education/lectures/HS21/DA/index.html',
     links: [
@@ -226,28 +222,27 @@ const actions = [
     ],
   },
 ]
-
-const announcements = [
+const exercises = [
   {
     id: 1,
-    title: actions[0].name,
+    title: mainLinks[0].name,
     href: 'https://dm.crypto.ethz.ch/',
     date: 'Donnerstag 23:59',
   },
   {
     id: 2,
-    title: actions[1].name,
+    title: mainLinks[1].name,
     location: 'TBD',
     date: 'Freitag',
   },
   {
     id: 3,
-    title: actions[2].name,
+    title: mainLinks[2].name,
     date: 'Übungsstunde',
   },
   {
     id: 4,
-    title: actions[3].name,
+    title: mainLinks[3].name,
     date: 'Übungsstunde (und ggf. Email)',
   },
 ]
@@ -272,8 +267,8 @@ export default defineComponent({
   setup() {
     return {
       user,
-      actions,
-      announcements,
+      mainLinks,
+      exercises,
       links,
     }
   },
