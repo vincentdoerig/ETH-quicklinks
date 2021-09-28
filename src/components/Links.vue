@@ -55,11 +55,14 @@
                           class="absolute inset-0"
                           aria-hidden="true"
                         />
-                        {{ action.name }}
+                        <span class="pr-6">{{ action.name }}</span>
                       </a>
                     </h3>
+                    <h4 class="text-xs font-medium text-gray-500">
+                      {{ action.prof }}
+                    </h4>
 
-                    <div class="grid grid-cols-1 mt-4 divide-y divide-gray-200 sm:grid-cols-3 sm:divide-y-0 sm:divide-x">
+                    <div class="grid grid-cols-1 mt-5 divide-y divide-gray-200 sm:grid-cols-3 sm:divide-y-0 sm:divide-x">
                       <div
                         v-for="link in action.links"
                         :key="link.label"
@@ -67,13 +70,13 @@
                       >
                         <a
                           :href="link.href"
-                          class="relative p-3 text-blue-800 hover:text-blue-900"
+                          class="relative px-2 py-0.5 text-blue-800 bg-blue-100 rounded hover:bg-blue-200 hover:text-blue-900"
                         >{{ link.label }}</a>
                       </div>
                     </div>
                   </div>
                   <span
-                    class="absolute text-gray-300 pointer-events-none top-6 right-6 group-hover:text-gray-400"
+                    class="absolute text-gray-300 pointer-events-none top-6 right-6 group-hover:text-gray-500"
                     aria-hidden="true"
                   >
                     <svg
@@ -194,22 +197,25 @@ const user = {
 const mainLinks = [
   {
     name: 'Diskrete Mathematik',
+    prof: 'Prof. Ueli Maurer',
     href: 'https://crypto.ethz.ch/teaching/DM21/',
     links: [
       { label: 'Skript', href: 'https://crypto.ethz.ch/teaching/DM21/ln/DM21_LN-tablet_8jk9jkr58uo2kq7mzarv.pdf' },
-      { label: 'Exercises', href: 'https://dm.crypto.ethz.ch/' },
+      { label: 'Übungen', href: 'https://dm.crypto.ethz.ch/' },
       { label: 'VVZ', href: 'http://vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheit.view?lerneinheitId=147043&semkez=2021W&ansicht=LEHRVERANSTALTUNGEN&lang=de'},
     ],
   },
   {
     name: 'Lineare Algebra',
+    prof: 'Prof. Özlem Imamoglu, Prof. Olga Sorkine-Hornung',
     href: 'https://igl.ethz.ch/teaching/linear-algebra/la2021/',
     links: [
       { label: 'VVZ', href: 'http://vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheit.view?lerneinheitId=148509&semkez=2021W&ansicht=LEHRVERANSTALTUNGEN&lang=de'},
     ],
   },
   {
-    name: 'Einführung in die Programmierung',
+    name: 'Einführung in die Pro­gram­mie­rung', // 3 shy hyphen ('­') are used to tell the browser where to set hyphens
+    prof: 'Prof. Thomas Gross',
     href: 'https://www.lst.inf.ethz.ch/education/einfuehrung-in-die-programmierung-i--252-0027-.html#tab-accordion1-item4-content',
     links: [
       { label: 'Übungen', href: 'https://www.lst.inf.ethz.ch/education/einfuehrung-in-die-programmierung-i--252-0027-.html#par_textimage_1873914489' },
@@ -217,10 +223,11 @@ const mainLinks = [
     ],
   },
   {
-    name: 'Algorithmen und Datenstrukturen',
+    name: 'Algorithmen und Daten­strukturen', // with a shy hyphen after 'Daten'
+    prof: 'Prof. Markus Püschel, Prof. David Steurer',
     href: 'https://cadmo.ethz.ch/education/lectures/HS21/DA/index.html',
     links: [
-      { label: 'Exercises', href: 'https://cadmo.ethz.ch/education/lectures/HS21/DA/index.html#Exercises' },
+      { label: 'Übungen', href: 'https://cadmo.ethz.ch/education/lectures/HS21/DA/index.html#Exercises' },
       { label: 'Info VVZ', href: 'http://vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheit.view?lerneinheitId=146603&semkez=2021W&ansicht=LEHRVERANSTALTUNGEN&lang=de'},
     ],
   },
@@ -235,23 +242,25 @@ const exercises = [
   {
     id: 2,
     title: mainLinks[1].name,
-    location: 'TBD',
-    date: 'Freitag',
+    location: 'Wo: TBD',
+    date: 'Freitag 16:00',
   },
   {
     id: 3,
     title: mainLinks[2].name,
-    date: 'Übungsstunde',
+    date: 'Übungsstunde (per git)',
   },
   {
     id: 4,
     title: mainLinks[3].name,
-    date: 'Übungsstunde (und ggf. Email)',
+    date: 'Montag 9:15 (in Übungsstunde und ggf. vorher per Email)',
   },
 ]
 
 const links = [
   { label: 'myStudies', href: 'https://www.lehrbetrieb.ethz.ch/myStudies/studWillkommen.view' },
+  { label: 'Live Lectures', href: 'https://video.ethz.ch/live/lectures/zentrum.html' },
+  { label: 'Past Lectures', href: 'https://video.ethz.ch/lectures/d-infk/2021/autumn.html' },
   { label: 'VIS Exam Collection', href: 'https://exams.vis.ethz.ch/' },
   { label: 'Vorlesungsverzeichnis', href: 'http://vvz.ethz.ch/Vorlesungsverzeichnis/sucheLehrangebot.view?lang=de&search=on&semkez=2021W&studiengangTyp=BSC&deptId=5&studiengangAbschnittId=91295&bereichAbschnittId=91899&unterbereichAbschnittId=&lerneinheitstitel=&lerneinheitscode=&famname=&rufname=&wahlinfo=&lehrsprache=&periodizitaet=&katalogdaten=&_strukturAus=on&search=Suchen' },
 ]
