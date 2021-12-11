@@ -29,7 +29,7 @@
                 </div>
               </div>
             </section>
-
+            <CurrentLecture />
             <!-- Quick links panel -->
             <section aria-labelledby="quick-links-title">
               <div class="overflow-hidden bg-gray-200 divide-y divide-gray-200 rounded-lg shadow sm:divide-y-0 sm:grid sm:grid-cols-2 sm:gap-px">
@@ -190,6 +190,7 @@
 
 <script>
 import { defineComponent } from 'vue'
+import CurrentLecture from './CurrentLecture.vue'
 
 const user = {
   name: '',
@@ -242,7 +243,6 @@ const exercises = [
   {
     id: 2,
     title: mainLinks[1].name,
-    location: 'Wo: TBD',
     date: 'Freitag 16:00',
   },
   {
@@ -262,10 +262,14 @@ const links = [
   { label: 'Live Lectures', href: 'https://video.ethz.ch/live/lectures/zentrum.html' },
   { label: 'Past Lectures', href: 'https://video.ethz.ch/lectures/d-infk/2021/autumn.html' },
   { label: 'VIS Exam Collection', href: 'https://exams.vis.ethz.ch/' },
+  { label: 'PVW Skripts', href: 'https://vis.ethz.ch/de/services/pvw-scripts/' },
   { label: 'Vorlesungsverzeichnis', href: 'http://vvz.ethz.ch/Vorlesungsverzeichnis/sucheLehrangebot.view?lang=de&search=on&semkez=2021W&studiengangTyp=BSC&deptId=5&studiengangAbschnittId=91295&bereichAbschnittId=91899&unterbereichAbschnittId=&lerneinheitstitel=&lerneinheitscode=&famname=&rufname=&wahlinfo=&lehrsprache=&periodizitaet=&katalogdaten=&_strukturAus=on&search=Suchen' },
 ]
 
 export default defineComponent({
+  components: {
+    CurrentLecture,
+  },
   props: {
     time: {
       type: String,
