@@ -1,11 +1,7 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
-  purge: {
-    enabled: process.env.NODE_ENV === 'production',
-    content: ['./index.html', './src/**/*.vue', './src/**/*.ts'],
-  },
+  content: ['./index.html', './src/**/*.vue', './src/**/*.ts'],
   theme: {
     extend: {
       fontFamily: {
