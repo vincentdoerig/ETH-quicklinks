@@ -1,4 +1,4 @@
-import { google } from 'googleapis'
+const { google } = require('googleapis')
 
 module.exports = (req, res) => {
   try {
