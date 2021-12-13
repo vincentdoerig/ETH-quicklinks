@@ -1,6 +1,6 @@
 import { google } from 'googleapis'
 
-export default async function handler(req, res) {
+module.exports = (req, res) => {
   try {
     const scopes = ['https://www.googleapis.com/auth/spreadsheets.readonly']
     const jwt = new google.auth.JWT(
@@ -22,5 +22,4 @@ export default async function handler(req, res) {
   } catch (error) {
     res.status(500).send(error)
   }
-
 }
