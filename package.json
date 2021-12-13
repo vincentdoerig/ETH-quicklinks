@@ -13,6 +13,7 @@
     "@tailwindcss/forms": "^0.4.0",
     "@tailwindcss/typography": "^0.5.0",
     "@vitejs/plugin-vue": "^1.10.2",
+    "googleapis": "^92.0.0",
     "vue": "^3.0.0",
     "vue-router": "^4.0.2"
   },
