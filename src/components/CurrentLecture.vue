@@ -104,17 +104,24 @@
 </template>
 
 <script>
-import { defineComponent, reactive } from 'vue'
+import { defineComponent, reactive, ref } from 'vue'
+
+const subjects = reactive([
+  ref('Algorithmen und Wahrschein­lichkeit'),
+  ref('Analysis I'),
+  ref('Digital Design and Computer Architecture'),
+  ref('Parallele Programmierung'),
+])
 
 const lectureList = [
-  { id: 1, name: 'Einführung in die Pro­gram­mie­rung', time: '10:15–12:00', room: 'ML D28 / ML E12', roomCode: 'ml/ml-d-28', weekday: 2 },
-  { id: 2, name: 'Einführung in die Pro­gram­mie­rung', time: '08:15–10:00', room: 'ML D28 / ML E12', roomCode: 'ml/ml-d-28', weekday: 5 },
-  { id: 3, name: 'Algorithmen und Daten­strukturen', time: '10:15–12:00', room: 'HG F7 / HG F5', roomCode: 'hg/hg-f-7', weekday: 4 },
-  { id: 4, name: 'Algorithmen und Daten­strukturen', time: '14:15–15:00', room: 'ETA F5 / ETF E1', roomCode: 'eta/eta-f-5', weekday: 4 },
-  { id: 5, name: 'Lineare Algebra', time: '10:15–12:00', room: 'HG F7 / HG F5', roomCode: 'hg/hg-f-7', weekday: 3 },
-  { id: 6, name: 'Lineare Algebra', time: '10:15–12:00', room: 'HG F7 / HG F5', roomCode: 'hg/hg-f-7', weekday: 5 },
-  { id: 7, name: 'Diskrete Mathematik', time: '14:15–16:00', room: 'ETA F5 / ETF E1', roomCode: 'eta/eta-f-5', weekday: 1 },
-  { id: 8, name: 'Diskrete Mathematik', time: '14:15–16:00', room: 'ETA F5 / ETF E1', roomCode: 'eta/eta-f-5', weekday: 3 },
+  { id: 1, name: subjects[1].value, time: '14:15–16:00', room: 'HG F1 / HG F3', roomCode: 'hg/hg-f-1', weekday: 1 },
+  { id: 2, name: subjects[3].value, time: '10:15–12:00', room: 'HG F5 / HG F7', roomCode: 'hg/hg-f-5', weekday: 2 },
+  { id: 3, name: subjects[0].value, time: '14:15–16:00', room: 'HG F5 / HG F7', roomCode: 'hg/hg-f-5', weekday: 2 },
+  { id: 4, name: subjects[1].value, time: '10:15–12:00', room: 'HG F1 / HG F3', roomCode: 'hg/hg-f-1', weekday: 3 },
+  { id: 5, name: subjects[3].value, time: '14:15–16:00', room: 'HG F5 / HG F7', roomCode: 'hg/hg-f-5', weekday: 3 },
+  { id: 6, name: subjects[0].value, time: '10:15–12:00', room: 'HG F5 / HG F7', roomCode: 'hg/hg-f-5', weekday: 4 },
+  { id: 7, name: subjects[2].value, time: '14:15–16:00', room: 'HG F5 / HG F7', roomCode: 'hg/hg-f-5', weekday: 4 },
+  { id: 8, name: subjects[2].value, time: '14:15–16:00', room: 'HG F5 / HG F7', roomCode: 'hg/hg-f-5', weekday: 5 },
 ]
 
 export default defineComponent({

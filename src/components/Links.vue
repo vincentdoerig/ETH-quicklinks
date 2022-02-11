@@ -122,7 +122,10 @@
           </div>
 
           <!-- Right column -->
-          <div class="grid grid-cols-1 gap-4">
+          <div
+            v-if="exercises.length > 0"
+            class="grid grid-cols-1 gap-4"
+          >
             <!-- Übungen -->
             <section aria-labelledby="exercises-title">
               <div class="overflow-hidden bg-white rounded-lg shadow">
@@ -178,7 +181,7 @@
     <footer>
       <div class="max-w-3xl px-4 mx-auto sm:px-6 lg:px-8 lg:max-w-7xl">
         <div class="py-8 text-sm text-center text-gray-500 border-t border-gray-200 sm:text-left">
-          <span class="block sm:inline">&copy; 2021 Vincent Dörig</span> <span class="block sm:inline">No guarantee for completeness or accuracy.</span> <a
+          <span class="block sm:inline">&copy; {{ new Date().getFullYear() }} Vincent Dörig</span> <span class="block sm:inline">No guarantee for completeness or accuracy.</span> <a
             href="https://github.com/vincentdoerig/ETH-quicklinks"
             class="block text-xs text-gray-700 underline sm:inline"
           >Open Source &hearts;.</a>
@@ -195,67 +198,53 @@ import CurrentLecture from './CurrentLecture.vue'
 const user = {
   name: '',
 }
+
+const subjects = [
+  'Algorithmen und Wahrschein­lichkeit',
+  'Analysis I',
+  'Digital Design and Computer Architecture',
+  'Parallele Programmierung',
+]
+
 const mainLinks = [
   {
-    name: 'Diskrete Mathematik',
-    prof: 'Prof. Ueli Maurer',
-    href: 'https://crypto.ethz.ch/teaching/DM21/',
+    name: subjects[0],
+    prof: 'Prof. Angelika Steger, Prof. Emo Welzl',
+    href: 'https://moodle-app2.let.ethz.ch/course/view.php?id=16841',
     links: [
-      { label: 'Skript', href: 'https://crypto.ethz.ch/teaching/DM21/ln/DM21_LN-tablet_8jk9jkr58uo2kq7mzarv.pdf' },
-      { label: 'Übungen', href: 'https://dm.crypto.ethz.ch/' },
-      { label: 'VVZ', href: 'http://vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheit.view?lerneinheitId=147043&semkez=2021W&ansicht=LEHRVERANSTALTUNGEN&lang=de'},
+      { label: 'Moodle', href: 'https://moodle-app2.let.ethz.ch/course/view.php?id=16841' },
+      { label: 'VVZ', href: 'http://vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheit.view?lerneinheitId=157731&semkez=2022S&ansicht=LEHRVERANSTALTUNGEN&lang=de'},
     ],
   },
   {
-    name: 'Lineare Algebra',
-    prof: 'Prof. Özlem Imamoglu, Prof. Olga Sorkine-Hornung',
-    href: 'https://igl.ethz.ch/teaching/linear-algebra/la2021/',
+    name: subjects[2],
+    prof: 'Prof. Onur Mutlu',
+    href: 'https://safari.ethz.ch/digitaltechnik/doku.php',
     links: [
-      { label: 'VVZ', href: 'http://vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheit.view?lerneinheitId=148509&semkez=2021W&ansicht=LEHRVERANSTALTUNGEN&lang=de'},
+      { label: 'Moodle', href: 'https://moodle-app2.let.ethz.ch/course/view.php?id=16852' },
+      { label: 'YouTube', href: 'https://www.youtube.com/c/OnurMutluLectures/videos' },
+      { label: 'VVZ', href: 'http://vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheit.view?lerneinheitId=159117&semkez=2022S&ansicht=LEHRVERANSTALTUNGEN&lang=de'},
     ],
   },
   {
-    name: 'Einführung in die Pro­gram­mie­rung', // 3 shy hyphen ('­') are used to tell the browser where to set hyphens
-    prof: 'Prof. Thomas Gross',
-    href: 'https://www.lst.inf.ethz.ch/education/einfuehrung-in-die-programmierung-i--252-0027-.html#tab-accordion1-item4-content',
+    name: subjects[1],
+    prof: 'Prof. Özlem Imamoglu',
+    href: 'https://metaphor.ethz.ch/x/2022/fs/401-0212-16L/',
     links: [
-      { label: 'Übungen', href: 'https://www.lst.inf.ethz.ch/education/einfuehrung-in-die-programmierung-i--252-0027-.html#par_textimage_1873914489' },
-      { label: 'VVZ', href: 'http://vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheit.view?lerneinheitId=148279&semkez=2021W&ansicht=LEHRVERANSTALTUNGEN&lang=de'},
+      { label: 'VVZ', href: 'http://vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheit.view?semkez=2022S&ansicht=LEHRVERANSTALTUNGEN&lerneinheitId=158644&lang=de'},
     ],
   },
   {
-    name: 'Algorithmen und Daten­strukturen', // with a shy hyphen after 'Daten'
-    prof: 'Prof. Markus Püschel, Prof. David Steurer',
-    href: 'https://cadmo.ethz.ch/education/lectures/HS21/DA/index.html',
+    name: subjects[3],
+    prof: 'Prof. Torsten Hoefler, Dr. Barbara Solenthaler',
+    href: 'https://spcl.inf.ethz.ch/Teaching/2022-pp/',
     links: [
-      { label: 'Übungen', href: 'https://cadmo.ethz.ch/education/lectures/HS21/DA/index.html#Exercises' },
-      { label: 'Info VVZ', href: 'http://vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheit.view?lerneinheitId=146603&semkez=2021W&ansicht=LEHRVERANSTALTUNGEN&lang=de'},
+      { label: 'Moodle', href: 'https://moodle-app2.let.ethz.ch/course/view.php?id=16717' },
+      { label: 'VVZ', href: 'http://vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheit.view?lerneinheitId=157750&semkez=2022S&ansicht=LEHRVERANSTALTUNGEN&lang=de'},
     ],
   },
 ]
-const exercises = [
-  {
-    id: 1,
-    title: mainLinks[0].name,
-    href: 'https://dm.crypto.ethz.ch/',
-    date: 'Donnerstag 23:59',
-  },
-  {
-    id: 2,
-    title: mainLinks[1].name,
-    date: 'Freitag 16:00',
-  },
-  {
-    id: 3,
-    title: mainLinks[2].name,
-    date: 'Übungsstunde (per git)',
-  },
-  {
-    id: 4,
-    title: mainLinks[3].name,
-    date: 'Montag 9:15 (in Übungsstunde und ggf. vorher per Email)',
-  },
-]
+const exercises = []
 
 const links = [
   { label: 'myStudies', href: 'https://www.lehrbetrieb.ethz.ch/myStudies/studWillkommen.view' },
@@ -263,7 +252,7 @@ const links = [
   { label: 'Past Lectures', href: 'https://video.ethz.ch/lectures/d-infk/2021/autumn.html' },
   { label: 'VIS Exam Collection', href: 'https://exams.vis.ethz.ch/' },
   { label: 'PVW Skripts', href: 'https://vis.ethz.ch/de/services/pvw-scripts/' },
-  { label: 'Vorlesungsverzeichnis', href: 'http://vvz.ethz.ch/Vorlesungsverzeichnis/sucheLehrangebot.view?lang=de&search=on&semkez=2021W&studiengangTyp=BSC&deptId=5&studiengangAbschnittId=91295&bereichAbschnittId=91899&unterbereichAbschnittId=&lerneinheitstitel=&lerneinheitscode=&famname=&rufname=&wahlinfo=&lehrsprache=&periodizitaet=&katalogdaten=&_strukturAus=on&search=Suchen' },
+  { label: 'Vorlesungsverzeichnis', href: 'http://vvz.ethz.ch/Vorlesungsverzeichnis/sucheLehrangebot.view?lang=de&search=on&semkez=2022S&studiengangTyp=BSC&deptId=5&studiengangAbschnittId=96660&bereichAbschnittId=97277&unterbereichAbschnittId=97874&lerneinheitstitel=&lerneinheitscode=&famname=&rufname=&wahlinfo=&lehrsprache=&periodizitaet=&katalogdaten=&_strukturAus=on&search=Suchen' },
 ]
 
 export default defineComponent({
