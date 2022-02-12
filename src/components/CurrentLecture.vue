@@ -1,11 +1,11 @@
 <template>
   <section aria-labelledby="current-lecture">
-    <div class="overflow-hidden bg-white rounded-lg shadow">
+    <div class="overflow-hidden bg-white rounded-lg shadow dark:bg-slate-800">
       <div class="p-6">
         <span
           v-if="lecturesToday.length == 0"
           id="current-lecture"
-          class="text-sm font-medium text-gray-900"
+          class="text-sm font-medium text-gray-900 dark:text-slate-200"
         >
           No lectures today.
           <span
@@ -15,14 +15,14 @@
         <h2
           v-else
           id="current-lecture"
-          class="text-sm font-medium text-gray-900"
+          class="text-sm font-medium text-gray-900 dark:text-slate-200"
         >
           Lectures Today:
         </h2>
         <div>
           <ol
             role="list"
-            class="divide-y divide-gray-200"
+            class="divide-y divide-gray-200 dark:divide-slate-600"
           >
             <li
               v-for="lecture in lecturesToday"
@@ -30,15 +30,15 @@
               class="relative py-4"
             >
               <div class="inline-flex items-baseline">
-                <span class="mr-2 text-sm text-gray-500 tabular-nums">{{
+                <span class="mr-2 text-sm text-gray-500 dark:text-slate-400 tabular-nums">{{
                   lecture.time
                 }}</span>
-                <h3 class="font-semibold text-gray-900 sm:text-lg md:text-xl">
+                <h3 class="font-semibold text-gray-900 dark:text-slate-200 sm:text-lg md:text-xl">
                   {{ lecture.name }}
                 </h3>
 
                 <span
-                  class="ml-2 text-xs font-medium text-gray-500 sm:text-sm md:text-base"
+                  class="ml-2 text-xs font-medium text-gray-500 dark:text-slate-400 sm:text-sm md:text-base"
                 >{{ lecture.room }}</span>
 
 
