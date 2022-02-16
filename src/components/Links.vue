@@ -40,14 +40,14 @@
                   Quick links
                 </h2>
                 <div
-                  v-for="(action, actionIdx) in mainLinks"
-                  :key="action.name"
-                  :class="[actionIdx === 0 ? 'rounded-tl-lg rounded-tr-lg sm:rounded-tr-none' : '', actionIdx === 1 ? 'sm:rounded-tr-lg' : '', actionIdx === mainLinks.length - 2 ? 'sm:rounded-bl-lg' : '', actionIdx === mainLinks.length - 1 ? 'rounded-bl-lg rounded-br-lg sm:rounded-bl-none' : '', 'relative group bg-white dark:bg-slate-800 p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-cyan-500']"
+                  v-for="(subject, subjectIdx) in store.subjects"
+                  :key="subject.name"
+                  :class="[subjectIdx === 0 ? 'rounded-tl-lg rounded-tr-lg sm:rounded-tr-none' : '', subjectIdx === 1 ? 'sm:rounded-tr-lg' : '', subjectIdx === store.length - 2 ? 'sm:rounded-bl-lg' : '', subjectIdx === store.length - 1 ? 'rounded-bl-lg rounded-br-lg sm:rounded-bl-none' : '', 'relative group bg-white dark:bg-slate-800 p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-cyan-500']"
                 >
                   <div>
                     <h3 class="text-lg font-medium dark:text-slate-200">
                       <a
-                        :href="action.href"
+                        :href="subject.mainLink"
                         class="focus:outline-none"
                       >
                         <!-- Extend touch target to entire panel -->
@@ -55,16 +55,16 @@
                           class="absolute inset-0"
                           aria-hidden="true"
                         />
-                        <span class="pr-6">{{ action.name }}</span>
+                        <span class="pr-6">{{ subject.name }}</span>
                       </a>
                     </h3>
                     <h4 class="text-xs font-medium text-gray-500 dark:text-slate-400">
-                      {{ action.prof }}
+                      {{ subject.lecturer }}
                     </h4>
 
                     <div class="grid grid-cols-1 mt-5 divide-y divide-gray-200 dark:divide-slate-500 sm:grid-cols-3 sm:divide-y-0 sm:divide-x">
                       <div
-                        v-for="link in action.links"
+                        v-for="link in subject.links"
                         :key="link.label"
                         class="py-4 text-xs font-medium text-center sm:py-0"
                       >
@@ -118,6 +118,9 @@
                   </div>
                 </div>
               </div>
+            </section>
+            <section>
+              <Mensae />
             </section>
           </div>
 
@@ -198,59 +201,38 @@
 
 <script>
 import { defineComponent } from 'vue'
+import { useLinkStore } from '../store'
 import CurrentLecture from './CurrentLecture.vue'
+import Mensae from './Mensae.vue'
 import Toggle from './Toggle.vue'
 
 const user = {
   name: '',
 }
 
-const subjects = [
-  'Algorithmen und Wahrschein­lichkeit',
-  'Analysis I',
-  'Digital Design and Computer Architecture',
-  'Parallele Programmierung',
+const exercises = [
+  // {
+  //   id: 1,
+  //   title: mainLinks[0].name,
+  //   href: 'https://dm.crypto.ethz.ch/',
+  //   date: 'Donnerstag 23:59',
+  // },
+  // {
+  //   id: 2,
+  //   title: mainLinks[1].name,
+  //   date: 'Freitag 16:00',
+  // },
+  // {
+  //   id: 3,
+  //   title: mainLinks[2].name,
+  //   date: 'Übungsstunde (per git)',
+  // },
+  // {
+  //   id: 4,
+  //   title: mainLinks[3].name,
+  //   date: 'Montag 9:15 (in Übungsstunde und ggf. vorher per Email)',
+  // },
 ]
-
-const mainLinks = [
-  {
-    name: subjects[0],
-    prof: 'Prof. Angelika Steger, Prof. Emo Welzl',
-    href: 'https://moodle-app2.let.ethz.ch/course/view.php?id=16841',
-    links: [
-      { label: 'Moodle', href: 'https://moodle-app2.let.ethz.ch/course/view.php?id=16841' },
-      { label: 'VVZ', href: 'http://vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheit.view?lerneinheitId=157731&semkez=2022S&ansicht=LEHRVERANSTALTUNGEN&lang=de'},
-    ],
-  },
-  {
-    name: subjects[2],
-    prof: 'Prof. Onur Mutlu',
-    href: 'https://safari.ethz.ch/digitaltechnik/doku.php',
-    links: [
-      { label: 'Moodle', href: 'https://moodle-app2.let.ethz.ch/course/view.php?id=16852' },
-      { label: 'YouTube', href: 'https://www.youtube.com/c/OnurMutluLectures/videos' },
-      { label: 'VVZ', href: 'http://vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheit.view?lerneinheitId=159117&semkez=2022S&ansicht=LEHRVERANSTALTUNGEN&lang=de'},
-    ],
-  },
-  {
-    name: subjects[1],
-    prof: 'Prof. Özlem Imamoglu',
-    href: 'https://metaphor.ethz.ch/x/2022/fs/401-0212-16L/',
-    links: [
-      { label: 'VVZ', href: 'http://vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheit.view?semkez=2022S&ansicht=LEHRVERANSTALTUNGEN&lerneinheitId=158644&lang=de'},
-    ],
-  },
-  {
-    name: subjects[3],
-    prof: 'Prof. Torsten Hoefler, Dr. Barbara Solenthaler',
-    href: 'https://spcl.inf.ethz.ch/Teaching/2022-pp/',
-    links: [
-      { label: 'Moodle', href: 'https://moodle-app2.let.ethz.ch/course/view.php?id=16717' },
-      { label: 'VVZ', href: 'http://vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheit.view?lerneinheitId=157750&semkez=2022S&ansicht=LEHRVERANSTALTUNGEN&lang=de'},
-    ],
-  },
-]
-const exercises = []
 
 const links = [
   { label: 'myStudies', href: 'https://www.lehrbetrieb.ethz.ch/myStudies/studWillkommen.view' },
@@ -264,6 +246,7 @@ const links = [
 export default defineComponent({
   components: {
     CurrentLecture,
+    Mensae,
     Toggle,
   },
   props: {
@@ -277,11 +260,13 @@ export default defineComponent({
     },
   },
   setup() {
+    const store = useLinkStore()
+
     return {
       user,
-      mainLinks,
       exercises,
       links,
+      store,
     }
   },
 })
