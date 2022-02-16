@@ -119,9 +119,6 @@
                 </div>
               </div>
             </section>
-            <section>
-              <Mensae />
-            </section>
           </div>
 
           <!-- Right column -->
@@ -203,7 +200,6 @@
 import { defineComponent } from 'vue'
 import { useLinkStore } from '../store'
 import CurrentLecture from './CurrentLecture.vue'
-import Mensae from './Mensae.vue'
 import Toggle from './Toggle.vue'
 
 const user = {
@@ -246,7 +242,6 @@ const links = [
 export default defineComponent({
   components: {
     CurrentLecture,
-    Mensae,
     Toggle,
   },
   props: {
