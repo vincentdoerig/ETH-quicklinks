@@ -211,6 +211,209 @@
                       </button>
                     </div>
                   </div>
+
+                  <div class="ml-4">
+                    <p class="mt-3 text-sm font-medium text-gray-800">
+                      Schedule
+                    </p>
+                    <p class="text-sm text-gray-500">
+                      Add when your lectures and exercises are scheduled.
+                    </p>
+                    <!-- TODO maybe add md:grid-cols-2 -->
+                    <div class="grid gap-4 mt-2">
+                      <div
+                        v-for="entry in subject.schedule"
+                        :key="entry.id"
+                      >
+                        <div class="grid border p-6 rounded-md shadow grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
+                          <div class="sm:col-span-2">
+                            <label
+                              for="location"
+                              class="block text-sm font-medium text-gray-700"
+                            >Type</label>
+                            <select
+                              id="location"
+                              v-model="entry.type"
+                              name="location"
+                              class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                            >
+                              <option
+                                value="lecture"
+                              >
+                                Lecture
+                              </option>
+                              <option value="exercise">
+                                Exercise
+                              </option>
+                              <option value="lab">
+                                Lab
+                              </option>
+                              <option value="other">
+                                Other
+                              </option>
+                            </select>
+                          </div>
+                          <div class="sm:col-span-2">
+                            <label
+                              for="location"
+                              class="block text-sm font-medium text-gray-700"
+                            >Weekday</label>
+                            <select
+                              id="location"
+                              v-model="entry.day"
+                              name="location"
+                              class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                            >
+                              <option value="1">
+                                Monday
+                              </option>
+                              <option value="2">
+                                Tuesday
+                              </option>
+                              <option value="3">
+                                Wednesday
+                              </option>
+                              <option value="4">
+                                Thursday
+                              </option>
+                              <option value="5">
+                                Friday
+                              </option>
+                              <option value="6">
+                                Saturday
+                              </option>
+                              <option value="0">
+                                Sunday
+                              </option>
+                            </select>
+                          </div>
+
+                          <div class="sm:col-span-3 md:col-span-2 flex flex-row space-x-4">
+                            <div>
+                              <label
+                                for="ll"
+                                class="block text-sm font-medium text-gray-700"
+                              >Starts at</label>
+                              <input
+                                id="ll"
+                                v-model="entry.startsAt"
+                                name="ll"
+                                type="time"
+                                class="mt-1 block text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md tabular-nums"
+                              >
+                            </div>
+                            <div>
+                              <label
+                                for="ll"
+                                class="block text-sm font-medium text-gray-700"
+                              >Ends at</label>
+                              <input
+                                id="ll"
+                                v-model="entry.endsAt"
+                                name="ll"
+                                type="time"
+                                class="mt-1 block text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md tabular-nums"
+                              >
+                            </div>
+                          </div>
+
+                          <div class="sm:col-span-2">
+                            <label
+                              for="room"
+                              class="block text-sm font-medium text-gray-700"
+                            >Room number</label>
+                            <div class="mt-1">
+                              <input
+                                id="room"
+                                v-model="entry.room"
+                                type="text"
+                                name="room"
+                                class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                                placeholder="hg/hg-f-7"
+                                aria-describedby="room-description"
+                              >
+                            </div>
+                          </div>
+
+                          <div class="sm:col-span-2">
+                            <div class="flex justify-between">
+                              <label
+                                for="ov-room"
+                                class="block text-sm font-medium text-gray-700"
+                              >Overflow room</label>
+                              <span
+                                id="ov-room-optional"
+                                class="text-sm text-gray-500"
+                              >Optional</span>
+                            </div>
+                            <div class="mt-1">
+                              <input
+                                id="ov-room"
+                                v-model="entry.secondRoom"
+                                type="text"
+                                name="ov-room"
+                                class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                                placeholder="hg/hg-f-5"
+                                aria-describedby="ov-room-optional"
+                              >
+                            </div>
+                          </div>
+
+                          <div class="sm:col-span-3">
+                            <div class="flex justify-between">
+                              <label
+                                for="roomcode"
+                                class="block text-sm font-medium text-gray-700"
+                              >Livestream Room code</label>
+                              <span
+                                id="roomcode-optional"
+                                class="text-sm text-gray-500"
+                              >Optional</span>
+                            </div>
+
+                            <div class="mt-1">
+                              <input
+                                id="roomcode"
+                                v-model="entry.roomCode"
+                                type="text"
+                                name="room"
+                                class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                                placeholder="hg/hg-f-7"
+                                aria-describedby="room-description"
+                              >
+                            </div>
+                            <p
+                              id="room-description"
+                              class="mt-2 text-xs text-gray-500"
+                            >
+                              Used to provide a direct link to the livestream of the lecture.
+                            </p>
+                          </div>
+
+                          <div class="sm:col-span-6 flex justify-end">
+                            <button
+                              type="button"
+                              class="relative inline-flex items-center  p-1 px-3 py-2 text-sm text-red-800 border border-gray-300 rounded-md  hover:bg-red-100 bg-red-50 focus-within:z-10 focus-within:ring-1 focus-within:ring-red-600 focus-within:border-red-600"
+                              @click="deleteEntry(subject.id, entry.id)"
+                            >
+                              Delete Entry
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <button
+                        type="button"
+                        class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 h-fit"
+                        @click="addNewEntry(subject.id)"
+                      >
+                        <PlusSmIcon
+                          class="-ml-0.5 mr-2 h-4 w-4"
+                          aria-hidden="true"
+                        />
+                        New Schedule Entry
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -289,6 +492,7 @@ export default defineComponent({
         lecturer: '',
         mainLink: '',
         links: [],
+        schedule: [],
       })
     }
 
@@ -300,12 +504,29 @@ export default defineComponent({
       })
     }
 
+     const addNewEntry = (subjectId: string) => {
+      store.addScheduleEntry(subjectId, {
+        id: nanoid(),
+        day: 1,
+        startsAt: '',
+        endsAt: '',
+        room: '',
+        secondRoom: '',
+        type: 'lecture',
+        roomCode: '',
+      })
+    }
+
     const deleteSubject = (id: string) => {
       store.removeSubject(id)
     }
 
     const deleteLink = (subjectId: string, linkId: string) => {
       store.removeLink(subjectId, linkId)
+    }
+
+    const deleteEntry = (subjectId: string, entryId: string) => {
+      store.removeScheduleEntry(subjectId, entryId)
     }
 
     const resetState = () => {
@@ -316,7 +537,7 @@ export default defineComponent({
       store.$state = { subjects: [], filter: 'all' }
     }
 
-    return { subjects, addNewSubject, deleteSubject, resetState, addNewLink, deleteLink, deleteState }
+    return { subjects, addNewSubject, deleteSubject, resetState, addNewLink, deleteLink, deleteState, addNewEntry, deleteEntry }
   },
 
 
