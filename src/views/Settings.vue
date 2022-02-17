@@ -200,7 +200,7 @@
                       </div>
                       <button
                         type="button"
-                        class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 h-fit"
+                        class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 h-fit"
                         @click="addNewLink(subject.id)"
                       >
                         <PlusSmIcon
@@ -228,14 +228,14 @@
                         <div class="grid border p-6 rounded-md shadow grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
                           <div class="sm:col-span-2">
                             <label
-                              for="location"
+                              :for="`type-${entry.id}`"
                               class="block text-sm font-medium text-gray-700"
                             >Type</label>
                             <select
-                              id="location"
+                              :id="`type-${entry.id}`"
                               v-model="entry.type"
-                              name="location"
-                              class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                              :name="`type-${entry.id}`"
+                              class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md"
                             >
                               <option
                                 value="lecture"
@@ -255,14 +255,14 @@
                           </div>
                           <div class="sm:col-span-2">
                             <label
-                              for="location"
+                              :for="`weekday-${entry.id}`"
                               class="block text-sm font-medium text-gray-700"
                             >Weekday</label>
                             <select
-                              id="location"
+                              :id="`weekday-${entry.id}`"
                               v-model="entry.day"
-                              name="location"
-                              class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                              :name="`weekday-${entry.id}`"
+                              class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md"
                             >
                               <option value="1">
                                 Monday
@@ -291,44 +291,44 @@
                           <div class="sm:col-span-3 md:col-span-2 flex flex-row space-x-4">
                             <div>
                               <label
-                                for="ll"
+                                :for="`startsAt-${entry.id}`"
                                 class="block text-sm font-medium text-gray-700"
                               >Starts at</label>
                               <input
-                                id="ll"
+                                :id="`startsAt-${entry.id}`"
                                 v-model="entry.startsAt"
-                                name="ll"
+                                :name="`startsAt-${entry.id}`"
                                 type="time"
-                                class="mt-1 block text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md tabular-nums"
+                                class="mt-1 block text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md tabular-nums"
                               >
                             </div>
                             <div>
                               <label
-                                for="ll"
+                                :for="`endsAt-${entry.id}`"
                                 class="block text-sm font-medium text-gray-700"
                               >Ends at</label>
                               <input
-                                id="ll"
+                                :id="`endsAt-${entry.id}`"
                                 v-model="entry.endsAt"
-                                name="ll"
+                                :name="`endsAt-${entry.id}`"
                                 type="time"
-                                class="mt-1 block text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md tabular-nums"
+                                class="mt-1 block text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md tabular-nums"
                               >
                             </div>
                           </div>
 
                           <div class="sm:col-span-2">
                             <label
-                              for="room"
+                              :for="`room-${entry.id}`"
                               class="block text-sm font-medium text-gray-700"
                             >Room number</label>
                             <div class="mt-1">
                               <input
-                                id="room"
+                                :id="`room-${entry.id}`"
                                 v-model="entry.room"
                                 type="text"
-                                name="room"
-                                class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                                :name="`room-${entry.id}`"
+                                class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
                                 placeholder="hg/hg-f-7"
                                 aria-describedby="room-description"
                               >
@@ -338,23 +338,23 @@
                           <div class="sm:col-span-2">
                             <div class="flex justify-between">
                               <label
-                                for="ov-room"
+                                :for="`ov-room-${entry.id}`"
                                 class="block text-sm font-medium text-gray-700"
                               >Overflow room</label>
                               <span
-                                id="ov-room-optional"
+                                :id="`ov-room-${entry.id}-optional`"
                                 class="text-sm text-gray-500"
                               >Optional</span>
                             </div>
                             <div class="mt-1">
                               <input
-                                id="ov-room"
+                                :id="`ov-room-${entry.id}`"
                                 v-model="entry.secondRoom"
                                 type="text"
-                                name="ov-room"
-                                class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                                :name="`ov-room-${entry.id}`"
+                                class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
                                 placeholder="hg/hg-f-5"
-                                aria-describedby="ov-room-optional"
+                                :aria-describedby="`ov-room-${entry.id}-optional`"
                               >
                             </div>
                           </div>
@@ -362,28 +362,28 @@
                           <div class="sm:col-span-3">
                             <div class="flex justify-between">
                               <label
-                                for="roomcode"
+                                :for="`roomcode-${entry.id}`"
                                 class="block text-sm font-medium text-gray-700"
                               >Livestream Room code</label>
                               <span
-                                id="roomcode-optional"
+                                :id="`roomcode-${entry.id}-optional`"
                                 class="text-sm text-gray-500"
                               >Optional</span>
                             </div>
 
                             <div class="mt-1">
                               <input
-                                id="roomcode"
+                                :id="`roomcode-${entry.id}`"
                                 v-model="entry.roomCode"
                                 type="text"
-                                name="room"
-                                class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                                :name="`roomcode-${entry.id}`"
+                                class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
                                 placeholder="hg/hg-f-7"
-                                aria-describedby="room-description"
+                                :aria-describedby="`roomcode-${entry.id}-description`"
                               >
                             </div>
                             <p
-                              id="room-description"
+                              :id="`roomcode-${entry.id}-description`"
                               class="mt-2 text-xs text-gray-500"
                             >
                               Used to provide a direct link to the livestream of the lecture.
@@ -403,7 +403,7 @@
                       </div>
                       <button
                         type="button"
-                        class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 h-fit"
+                        class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 h-fit"
                         @click="addNewEntry(subject.id)"
                       >
                         <PlusSmIcon
@@ -421,7 +421,7 @@
             <div class="flex items-center mt-6">
               <button
                 type="button"
-                class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                 @click="addNewSubject"
               >
                 <PlusSmIcon
