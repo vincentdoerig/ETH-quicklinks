@@ -10,7 +10,6 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { debounce } from 'ts-debounce'
 import { useLinkStore } from './store'
 
 export default defineComponent({
@@ -31,7 +30,7 @@ export default defineComponent({
     if (fromStorage) store.$patch(JSON.parse(fromStorage))
     store.$subscribe((_, state) => {
       // persist the whole state to the local storage whenever it changes
-      debounce(localStorage.setItem('links', JSON.stringify(state)), 1000)
+      localStorage.setItem('links', JSON.stringify(state))
     })
   },
 })
