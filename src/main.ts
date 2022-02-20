@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import { createPinia } from 'pinia'
+import { debounce } from 'ts-debounce'
 import App from './App.vue'
 import { routes } from './routes'
 import './index.css'
@@ -20,7 +21,7 @@ pinia.use(({ options, store }) => {
 
   store.$subscribe((mutation, state) => {
     console.log(mutation)
-    localStorage.setItem(store.$id, JSON.stringify(state))
+    debounce(localStorage.setItem(store.$id, JSON.stringify(state)))
   })
 })
 
