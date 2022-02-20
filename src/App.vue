@@ -10,6 +10,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { useLinkStore } from './store'
 
 export default defineComponent({
   components: {},
@@ -23,6 +24,14 @@ export default defineComponent({
     } else {
       document.body.classList.remove('dark')
     }
+
+    const store = useLinkStore()
+    const fromStorage = localStorage.getItem(store.$id)
+    if (fromStorage) store.$patch(JSON.parse(fromStorage))
+    store.$subscribe((_, state) => {
+      // persist the whole state to the local storage whenever it changes
+      localStorage.setItem('links', JSON.stringify(state))
+    })
   },
 })
 </script>

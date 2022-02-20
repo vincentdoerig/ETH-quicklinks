@@ -1,7 +1,7 @@
 <template>
   <SwitchGroup>
-    <div class="flex items-center">
-      <SwitchLabel class="mr-4 text-sm text-gray-500 dark:text-slate-500 lg:hidden">
+    <div class="flex items-center justify-between w-full">
+      <SwitchLabel class="mr-4 text-sm text-gray-600 dark:text-slate-400">
         Toggle Dark Mode
       </SwitchLabel>
       <Switch
