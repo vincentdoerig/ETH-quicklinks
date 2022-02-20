@@ -290,7 +290,6 @@ export const useLinkStore = defineStore('links', {
       this.links = this.links.filter((link) => link.id !== id)
     },
   },
-  persist: true,
 })
 
 // if (import.meta.hot) {

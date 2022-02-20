@@ -12,19 +12,6 @@ declare module 'pinia' {
   }
 }
 
-const pinia = createPinia()
-pinia.use(({ options, store }) => {
-  if (!options.persist) return
-
-  const fromStorage = localStorage.getItem(store.$id)
-  if (fromStorage) store.$patch(JSON.parse(fromStorage))
-
-  store.$subscribe((mutation, state) => {
-    console.log(mutation)
-    debounce(localStorage.setItem(store.$id, JSON.stringify(state)))
-  })
-})
-
 const app = createApp(App)
 
 const router = createRouter({
@@ -33,5 +20,5 @@ const router = createRouter({
 })
 
 app.use(router)
-app.use(pinia)
+app.use(createPinia())
 app.mount('#app')
