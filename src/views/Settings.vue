@@ -11,7 +11,6 @@
             <NavBar />
           </div>
 
-
           <div class="hidden p-4 mt-4 bg-blue-900 rounded-md dark:block">
             <div class="flex">
               <div class="flex-shrink-0">
@@ -38,7 +37,9 @@
                     Subjects
                   </h2>
                   <p class="mt-1 text-sm text-blue-gray-500">
-                    Add, edit and delete subjects or reset them to the default (ETH BCS FS22 BPB2). Everything is saved locally (localStorage).
+                    Add, edit and delete subjects or reset them to the default
+                    (ETH BCS FS22 BPB2). Everything is saved locally
+                    (localStorage).
                   </p>
                 </div>
 
@@ -77,7 +78,9 @@
                 >
                   <!-- dark:bg-slate-800 -->
                   <div class="p-6">
-                    <div class="relative -space-y-px rounded-md shadow-sm isolate">
+                    <div
+                      class="relative -space-y-px rounded-md shadow-sm isolate"
+                    >
                       <h3
                         v-if="subject.name"
                         class="mb-1 text-lg font-medium text-gray-900"
@@ -93,7 +96,7 @@
                       <button
                         type="button"
                         :title="`Delete &quot;${subject.name}&quot; (including its schedule entries).`"
-                        class="absolute top-0 right-0 inline-flex items-center p-1 text-red-800 bg-red-100 border rounded border-red-50 hover:bg-red-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-600 "
+                        class="absolute top-0 right-0 inline-flex items-center p-1 text-red-800 bg-red-100 border rounded border-red-50 hover:bg-red-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-600"
                         @click="deleteSubject(subject.id)"
                       >
                         <svg
@@ -110,7 +113,9 @@
                           />
                         </svg>
                       </button>
-                      <div class="relative px-3 py-2 border border-gray-300 rounded-md rounded-b-none focus-within:z-10 focus-within:ring-1 focus-within:ring-blue-600 focus-within:border-blue-600">
+                      <div
+                        class="relative px-3 py-2 border border-gray-300 rounded-md rounded-b-none focus-within:z-10 focus-within:ring-1 focus-within:ring-blue-600 focus-within:border-blue-600"
+                      >
                         <label
                           :for="`name-${subject.id}`"
                           class="block text-xs font-medium text-gray-700"
@@ -124,7 +129,9 @@
                           placeholder="Analysis I"
                         >
                       </div>
-                      <div class="relative px-3 py-2 border border-gray-300 focus-within:z-10 focus-within:ring-1 focus-within:ring-blue-600 focus-within:border-blue-600">
+                      <div
+                        class="relative px-3 py-2 border border-gray-300 focus-within:z-10 focus-within:ring-1 focus-within:ring-blue-600 focus-within:border-blue-600"
+                      >
                         <label
                           :for="`lecturer-${subject.id}`"
                           class="block w-full text-xs font-medium text-gray-700"
@@ -138,7 +145,9 @@
                           placeholder="Prof. Albert Einstein"
                         >
                       </div>
-                      <div class="relative px-3 py-2 border border-gray-300 rounded-md rounded-t-none focus-within:z-10 focus-within:ring-1 focus-within:ring-blue-600 focus-within:border-blue-600">
+                      <div
+                        class="relative px-3 py-2 border border-gray-300 rounded-md rounded-t-none focus-within:z-10 focus-within:ring-1 focus-within:ring-blue-600 focus-within:border-blue-600"
+                      >
                         <label
                           :for="`main-link-${subject.id}`"
                           class="block w-full text-xs font-medium text-gray-700"
@@ -164,7 +173,9 @@
                           :key="link.id"
                         >
                           <div class="-space-y-px rounded-md shadow-sm isolate">
-                            <div class="relative px-3 py-2 border border-gray-300 rounded-md rounded-b-none focus-within:z-10 focus-within:ring-1 focus-within:ring-blue-600 focus-within:border-blue-600">
+                            <div
+                              class="relative px-3 py-2 border border-gray-300 rounded-md rounded-b-none focus-within:z-10 focus-within:ring-1 focus-within:ring-blue-600 focus-within:border-blue-600"
+                            >
                               <label
                                 :for="`label-${link.id}`"
                                 class="block text-xs font-medium text-gray-700"
@@ -178,7 +189,9 @@
                                 placeholder="Script"
                               >
                             </div>
-                            <div class="relative px-3 py-2 border border-gray-300 focus-within:z-10 focus-within:ring-1 focus-within:ring-blue-600 focus-within:border-blue-600">
+                            <div
+                              class="relative px-3 py-2 border border-gray-300 focus-within:z-10 focus-within:ring-1 focus-within:ring-blue-600 focus-within:border-blue-600"
+                            >
                               <label
                                 :for="`href-${link.id}`"
                                 class="block text-xs font-medium text-gray-700"
@@ -229,7 +242,9 @@
                           v-for="entry in subject.schedule"
                           :key="entry.id"
                         >
-                          <div class="grid border p-6 rounded-md shadow grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
+                          <div
+                            class="grid border p-6 rounded-md shadow grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6"
+                          >
                             <div class="sm:col-span-2">
                               <label
                                 :for="`type-${entry.id}`"
@@ -241,9 +256,7 @@
                                 :name="`type-${entry.id}`"
                                 class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md"
                               >
-                                <option
-                                  value="lecture"
-                                >
+                                <option value="lecture">
                                   Lecture
                                 </option>
                                 <option value="exercise">
@@ -292,7 +305,9 @@
                               </select>
                             </div>
 
-                            <div class="sm:col-span-3 md:col-span-2 flex flex-row space-x-4">
+                            <div
+                              class="sm:col-span-3 md:col-span-2 flex flex-row space-x-4"
+                            >
                               <div>
                                 <label
                                   :for="`startsAt-${entry.id}`"
@@ -390,14 +405,15 @@
                                 :id="`roomcode-${entry.id}-description`"
                                 class="mt-2 text-xs text-gray-500"
                               >
-                                Used to provide a direct link to the livestream of the lecture.
+                                Used to provide a direct link to the livestream
+                                of the lecture.
                               </p>
                             </div>
 
                             <div class="sm:col-span-6 flex justify-end">
                               <button
                                 type="button"
-                                class="relative inline-flex items-center  p-1 px-3 py-2 text-sm text-red-800 border border-gray-300 rounded-md  hover:bg-red-100 bg-red-50 focus-within:z-10 focus-within:ring-1 focus-within:ring-red-600 focus-within:border-red-600"
+                                class="relative inline-flex items-center p-1 px-3 py-2 text-sm text-red-800 border border-gray-300 rounded-md hover:bg-red-100 bg-red-50 focus-within:z-10 focus-within:ring-1 focus-within:ring-red-600 focus-within:border-red-600"
                                 @click="deleteEntry(subject.id, entry.id)"
                               >
                                 Delete Entry
@@ -452,7 +468,9 @@
                     :key="link.id"
                   >
                     <div class="-space-y-px rounded-md shadow-sm isolate">
-                      <div class="relative px-3 py-2 border border-gray-300 rounded-md rounded-b-none focus-within:z-10 focus-within:ring-1 focus-within:ring-blue-600 focus-within:border-blue-600">
+                      <div
+                        class="relative px-3 py-2 border border-gray-300 rounded-md rounded-b-none focus-within:z-10 focus-within:ring-1 focus-within:ring-blue-600 focus-within:border-blue-600"
+                      >
                         <label
                           :for="`label-${link.id}`"
                           class="block text-xs font-medium text-gray-700"
@@ -466,7 +484,9 @@
                           placeholder="Script"
                         >
                       </div>
-                      <div class="relative px-3 py-2 border border-gray-300 focus-within:z-10 focus-within:ring-1 focus-within:ring-blue-600 focus-within:border-blue-600">
+                      <div
+                        class="relative px-3 py-2 border border-gray-300 focus-within:z-10 focus-within:ring-1 focus-within:ring-blue-600 focus-within:border-blue-600"
+                      >
                         <label
                           :for="`href-${link.id}`"
                           class="block text-xs font-medium text-gray-700"
@@ -523,8 +543,7 @@
 
               <button
                 type="button"
-                class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500
-                  cursor-pointer"
+                class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 cursor-pointer"
                 @click="exportState"
               >
                 <DownloadIcon
@@ -535,13 +554,15 @@
               </button>
 
               <div>
-                <p class="mt-2 text-sm font-medium p-4 rounded text-blue-800 bg-blue-50">
-                  Choose a valid JSON file to import your data. Be careful, this will overwrite your existing data.
+                <p
+                  class="mt-2 text-sm font-medium p-4 rounded text-blue-800 bg-blue-50"
+                >
+                  Choose a valid JSON file to import your data. Be careful, this
+                  will overwrite your existing data.
                 </p>
                 <label
                   for="file-upload"
-                  class="inline-flex lg:w-full mt-2 items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500
-                  cursor-pointer"
+                  class="inline-flex lg:w-full mt-2 items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 cursor-pointer"
                 >
                   <UploadIcon
                     class="-ml-0.5 mr-2 h-4 w-4"
@@ -559,8 +580,12 @@
               </div>
 
               <div class="mt-2 border-gray-400 border-t-2 pt-3 space-y-4">
-                <p class="mt-2 text-sm font-medium p-4 text-red-800 bg-red-50 rounded">
-                  These actions cannot be undone. They will clear all your data, including the contents of the scratchpad. Export your data beforehand.
+                <p
+                  class="mt-2 text-sm font-medium p-4 text-red-800 bg-red-50 rounded"
+                >
+                  These actions cannot be undone. They will clear all your data,
+                  including the contents of the scratchpad. Export your data
+                  beforehand.
                 </p>
                 <div class="flex gap-4 lg:flex-col w-fit lg:w-full">
                   <button
@@ -610,9 +635,9 @@ export default defineComponent({
 
     const { subjects, links } = storeToRefs(store)
 
-     const addNewSubject = () => {
+    const addNewSubject = () => {
       store.addSubject({
-        id: nanoid(),
+        id: nanoid(5),
         name: '',
         lecturer: '',
         mainLink: '',
@@ -623,7 +648,7 @@ export default defineComponent({
 
     const addNewSubjectLink = (subjectId: string) => {
       store.addSubjectLink(subjectId, {
-        id: nanoid(),
+        id: nanoid(5),
         label: '',
         href: '',
       })
@@ -631,15 +656,15 @@ export default defineComponent({
 
     const addNewLink = () => {
       store.addLink({
-        id: nanoid(),
+        id: nanoid(5),
         label: '',
         href: '',
       })
     }
 
-     const addNewEntry = (subjectId: string) => {
+    const addNewEntry = (subjectId: string) => {
       store.addScheduleEntry(subjectId, {
-        id: nanoid(),
+        id: nanoid(5),
         day: 1,
         startsAt: '',
         endsAt: '',
@@ -662,7 +687,7 @@ export default defineComponent({
       store.removeScheduleEntry(subjectId, entryId)
     }
 
-     const deleteLink = (linkId: string) => {
+    const deleteLink = (linkId: string) => {
       store.removeLink(linkId)
     }
 
@@ -671,6 +696,7 @@ export default defineComponent({
     }
 
     const deleteState = () => {
+      localStorage.removeItem('links')
       store.$state = { subjects: [], links: [], filter: 'all', scratchpad: '' }
     }
 
@@ -697,9 +723,22 @@ export default defineComponent({
       reader.readAsText(file)
     }
 
-    return { subjects, links, addNewSubject, deleteSubject, resetState, addNewSubjectLink, deleteSubjectLink, deleteState, addNewEntry, deleteEntry, exportState, importState, addNewLink, deleteLink }
+    return {
+      addNewEntry,
+      addNewLink,
+      addNewSubject,
+      addNewSubjectLink,
+      deleteEntry,
+      deleteLink,
+      deleteState,
+      deleteSubject,
+      deleteSubjectLink,
+      exportState,
+      importState,
+      links,
+      resetState,
+      subjects,
+    }
   },
-
-
 })
 </script>

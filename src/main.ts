@@ -1,7 +1,6 @@
 import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import { createPinia } from 'pinia'
-import { debounce } from 'ts-debounce'
 import App from './App.vue'
 import { routes } from './routes'
 import './index.css'

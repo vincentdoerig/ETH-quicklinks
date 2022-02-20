@@ -38,25 +38,25 @@ export const useLinkStore = defineStore('links', {
   state: (): State => ({
     subjects: [
       {
-        id: nanoid(),
+        id: nanoid(5),
         name: 'Algorithmen und Wahrschein­lichkeit',
         lecturer: 'Prof. Angelika Steger, Prof. Emo Welzl',
         mainLink: 'https://moodle-app2.let.ethz.ch/course/view.php?id=16841',
         links: [
           {
-            id: nanoid(),
+            id: nanoid(5),
             label: 'Moodle',
             href: 'https://moodle-app2.let.ethz.ch/course/view.php?id=16841',
           },
           {
-            id: nanoid(),
+            id: nanoid(5),
             label: 'VVZ',
             href: 'http://vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheit.view?lerneinheitId=157731&semkez=2022S&ansicht=LEHRVERANSTALTUNGEN&lang=de',
           },
         ],
         schedule: [
           {
-            id: nanoid(),
+            id: nanoid(5),
             startsAt: '14:15',
             endsAt: '16:00',
             room: 'HG F5',
@@ -66,7 +66,7 @@ export const useLinkStore = defineStore('links', {
             type: 'lecture',
           },
           {
-            id: nanoid(),
+            id: nanoid(5),
             startsAt: '10:15',
             endsAt: '12:00',
             room: 'HG F5',
@@ -78,30 +78,30 @@ export const useLinkStore = defineStore('links', {
         ],
       },
       {
-        id: nanoid(),
+        id: nanoid(5),
         name: 'Digital Design and Computer Architecture',
         lecturer: 'Prof. Onur Mutlu',
         mainLink: 'https://safari.ethz.ch/digitaltechnik/doku.php',
         links: [
           {
-            id: nanoid(),
+            id: nanoid(5),
             label: 'Moodle',
             href: 'https://moodle-app2.let.ethz.ch/course/view.php?id=16852',
           },
           {
-            id: nanoid(),
+            id: nanoid(5),
             label: 'YouTube',
             href: 'https://www.youtube.com/c/OnurMutluLectures/videos',
           },
           {
-            id: nanoid(),
+            id: nanoid(5),
             label: 'VVZ',
             href: 'http://vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheit.view?lerneinheitId=159117&semkez=2022S&ansicht=LEHRVERANSTALTUNGEN&lang=de',
           },
         ],
         schedule: [
           {
-            id: nanoid(),
+            id: nanoid(5),
             startsAt: '14:15',
             endsAt: '16:00',
             room: 'HG F5',
@@ -111,7 +111,7 @@ export const useLinkStore = defineStore('links', {
             type: 'lecture',
           },
           {
-            id: nanoid(),
+            id: nanoid(5),
             startsAt: '14:15',
             endsAt: '16:00',
             room: 'HG F5',
@@ -123,20 +123,20 @@ export const useLinkStore = defineStore('links', {
         ],
       },
       {
-        id: nanoid(),
+        id: nanoid(5),
         name: 'Analysis I',
         lecturer: 'Prof. Özlem Imamoglu',
         mainLink: 'https://metaphor.ethz.ch/x/2022/fs/401-0212-16L/',
         links: [
           {
-            id: nanoid(),
+            id: nanoid(5),
             label: 'VVZ',
             href: 'http://vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheit.view?semkez=2022S&ansicht=LEHRVERANSTALTUNGEN&lerneinheitId=158644&lang=de',
           },
         ],
         schedule: [
           {
-            id: nanoid(),
+            id: nanoid(5),
             startsAt: '14:15',
             endsAt: '16:00',
             room: 'HG F1',
@@ -146,7 +146,7 @@ export const useLinkStore = defineStore('links', {
             type: 'lecture',
           },
           {
-            id: nanoid(),
+            id: nanoid(5),
             startsAt: '10:15',
             endsAt: '12:00',
             room: 'HG F1',
@@ -158,25 +158,25 @@ export const useLinkStore = defineStore('links', {
         ],
       },
       {
-        id: nanoid(),
+        id: nanoid(5),
         name: 'Parallele Programmierung',
         lecturer: 'Prof. Torsten Hoefler, Dr. Barbara Solenthaler',
         mainLink: 'https://spcl.inf.ethz.ch/Teaching/2022-pp/',
         links: [
           {
-            id: nanoid(),
+            id: nanoid(5),
             label: 'Moodle',
             href: 'https://moodle-app2.let.ethz.ch/course/view.php?id=16717',
           },
           {
-            id: nanoid(),
+            id: nanoid(5),
             label: 'VVZ',
             href: 'http://vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheit.view?lerneinheitId=157750&semkez=2022S&ansicht=LEHRVERANSTALTUNGEN&lang=de',
           },
         ],
         schedule: [
           {
-            id: nanoid(),
+            id: nanoid(5),
             startsAt: '10:15',
             endsAt: '12:00',
             room: 'HG F5',
@@ -186,7 +186,7 @@ export const useLinkStore = defineStore('links', {
             type: 'lecture',
           },
           {
-            id: nanoid(),
+            id: nanoid(5),
             startsAt: '14:15',
             endsAt: '16:00',
             room: 'HG F5',
@@ -199,12 +199,12 @@ export const useLinkStore = defineStore('links', {
       },
     ],
     links: [
-      { id: nanoid(), label: 'myStudies', href: 'https://www.lehrbetrieb.ethz.ch/myStudies/studWillkommen.view' },
-      { id: nanoid(), label: 'Live Lectures', href: 'https://video.ethz.ch/live/lectures/zentrum.html' },
-      { id: nanoid(), label: 'Past Lectures', href: 'https://video.ethz.ch/lectures/d-infk/2021/autumn.html' },
-      { id: nanoid(), label: 'VIS Exam Collection', href: 'https://exams.vis.ethz.ch/' },
-      { id: nanoid(), label: 'PVW Skripts', href: 'https://vis.ethz.ch/de/services/pvw-scripts/' },
-      { id: nanoid(), label: 'Vorlesungsverzeichnis', href: 'http://vvz.ethz.ch/Vorlesungsverzeichnis/sucheLehrangebot.view?lang=de&search=on&semkez=2022S&studiengangTyp=BSC&deptId=5&studiengangAbschnittId=96660&bereichAbschnittId=97277&unterbereichAbschnittId=97874&lerneinheitstitel=&lerneinheitscode=&famname=&rufname=&wahlinfo=&lehrsprache=&periodizitaet=&katalogdaten=&_strukturAus=on&search=Suchen' },
+      { id: nanoid(5), label: 'myStudies', href: 'https://www.lehrbetrieb.ethz.ch/myStudies/studWillkommen.view' },
+      { id: nanoid(5), label: 'Live Lectures', href: 'https://video.ethz.ch/live/lectures/zentrum.html' },
+      { id: nanoid(5), label: 'Past Lectures', href: 'https://video.ethz.ch/lectures/d-infk/2021/autumn.html' },
+      { id: nanoid(5), label: 'VIS Exam Collection', href: 'https://exams.vis.ethz.ch/' },
+      { id: nanoid(5), label: 'PVW Skripts', href: 'https://vis.ethz.ch/de/services/pvw-scripts/' },
+      { id: nanoid(5), label: 'Vorlesungsverzeichnis', href: 'http://vvz.ethz.ch/Vorlesungsverzeichnis/sucheLehrangebot.view?lang=de&search=on&semkez=2022S&studiengangTyp=BSC&deptId=5&studiengangAbschnittId=96660&bereichAbschnittId=97277&unterbereichAbschnittId=97874&lerneinheitstitel=&lerneinheitscode=&famname=&rufname=&wahlinfo=&lehrsprache=&periodizitaet=&katalogdaten=&_strukturAus=on&search=Suchen' },
     ],
     scratchpad: '',
     /** @type {'all' | 'finished' | 'unfinished'} */
@@ -230,7 +230,7 @@ export const useLinkStore = defineStore('links', {
 
     // add a subject last
     addSubject(subject: Subject) {
-      this.subjects = [...this.subjects, { ...subject, id: nanoid() }]
+      this.subjects = [...this.subjects, { ...subject }]
     },
 
     addSubjectLink(subjectId: string, data: SecondaryLinks) {
@@ -238,7 +238,7 @@ export const useLinkStore = defineStore('links', {
         if (subject.id === subjectId) {
           return {
             ...subject,
-            links: [...subject.links, { ...data, id: nanoid() }],
+            links: [...subject.links, { ...data }],
           }
         }
         return subject
@@ -262,7 +262,7 @@ export const useLinkStore = defineStore('links', {
         if (subject.id === subjectId) {
           return {
             ...subject,
-            schedule: [...subject.schedule, { ...data, id: nanoid() }],
+            schedule: [...subject.schedule, { ...data }],
           }
         }
         return subject
