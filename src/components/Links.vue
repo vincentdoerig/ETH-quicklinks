@@ -107,7 +107,7 @@
                     >
                       <li
                         v-for="link in links"
-                        :key="link.href"
+                        :key="link.id"
                         class="py-4"
                       >
                         <p class="text-sm font-medium text-gray-800 underline truncate dark:text-slate-300 hover:no-underline">
@@ -176,8 +176,67 @@
                 </div>
               </section>
             </div>
-            <div class="flex justify-end">
-              <Toggle />
+            <div
+              class="grid grid-cols-1 gap-4 mb-4"
+            >
+              <!-- Miscellaneous -->
+              <section aria-labelledby="miscellaneous-title">
+                <div class="overflow-hidden bg-white rounded-lg shadow dark:bg-slate-800">
+                  <div class="p-6">
+                    <h2
+                      id="miscellaneous-title"
+                      class="text-base font-medium text-gray-900 dark:text-slate-200"
+                    >
+                      Miscellaneous
+                    </h2>
+
+                    <div class="mt-6 space-y-4">
+                      <Toggle />
+                      <div>
+                        <router-link
+                          to="/settings"
+                          class="text-sm text-gray-900 dark:text-slate-100 underline"
+                        >
+                          Edit Schedule and Links
+                        </router-link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+            <div
+              class="grid grid-cols-1 gap-4 mb-4"
+            >
+              <!-- Scratchpad -->
+              <section aria-labelledby="scratchpad-title">
+                <div class="overflow-hidden bg-white rounded-lg shadow dark:bg-slate-800">
+                  <div class="p-6">
+                    <h2
+                      id="scratchpad-title"
+                      class="text-base font-medium text-gray-900 dark:text-slate-200"
+                    >
+                      Scratchpad
+                    </h2>
+
+                    <div class="mt-4 space-y-4">
+                      <label
+                        for="comment"
+                        class="block text-sm font-medium text-gray-700 dark:text-slate-400"
+                      >Jot down ideas, things you need to do, or anything else that comes to mind. <span class="text-xs text-gray-500 dark:text-slate-500">Saved automatically.</span> </label>
+                      <div class="mt-1">
+                        <textarea
+                          id="comment"
+                          v-model="store.scratchpad"
+                          rows="8"
+                          name="comment"
+                          class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full dark:bg-slate-900 dark:text-slate-300 sm:text-sm border-gray-300 rounded-md"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
             </div>
           </div>
         </div>
@@ -230,15 +289,6 @@ const exercises = [
   // },
 ]
 
-const links = [
-  { label: 'myStudies', href: 'https://www.lehrbetrieb.ethz.ch/myStudies/studWillkommen.view' },
-  { label: 'Live Lectures', href: 'https://video.ethz.ch/live/lectures/zentrum.html' },
-  { label: 'Past Lectures', href: 'https://video.ethz.ch/lectures/d-infk/2021/autumn.html' },
-  { label: 'VIS Exam Collection', href: 'https://exams.vis.ethz.ch/' },
-  { label: 'PVW Skripts', href: 'https://vis.ethz.ch/de/services/pvw-scripts/' },
-  { label: 'Vorlesungsverzeichnis', href: 'http://vvz.ethz.ch/Vorlesungsverzeichnis/sucheLehrangebot.view?lang=de&search=on&semkez=2022S&studiengangTyp=BSC&deptId=5&studiengangAbschnittId=96660&bereichAbschnittId=97277&unterbereichAbschnittId=97874&lerneinheitstitel=&lerneinheitscode=&famname=&rufname=&wahlinfo=&lehrsprache=&periodizitaet=&katalogdaten=&_strukturAus=on&search=Suchen' },
-]
-
 export default defineComponent({
   components: {
     CurrentLecture,
@@ -256,6 +306,7 @@ export default defineComponent({
   },
   setup() {
     const store = useLinkStore()
+    const links = store.links
 
     return {
       user,

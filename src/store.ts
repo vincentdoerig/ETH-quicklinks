@@ -29,6 +29,8 @@ interface ScheduleEntry {
 
 interface State {
   subjects: Subject[] | [];
+  links: SecondaryLinks[];
+  scratchpad: string;
   filter: string;
 }
 
@@ -196,6 +198,15 @@ export const useLinkStore = defineStore('links', {
         ],
       },
     ],
+    links: [
+      { id: nanoid(), label: 'myStudies', href: 'https://www.lehrbetrieb.ethz.ch/myStudies/studWillkommen.view' },
+      { id: nanoid(), label: 'Live Lectures', href: 'https://video.ethz.ch/live/lectures/zentrum.html' },
+      { id: nanoid(), label: 'Past Lectures', href: 'https://video.ethz.ch/lectures/d-infk/2021/autumn.html' },
+      { id: nanoid(), label: 'VIS Exam Collection', href: 'https://exams.vis.ethz.ch/' },
+      { id: nanoid(), label: 'PVW Skripts', href: 'https://vis.ethz.ch/de/services/pvw-scripts/' },
+      { id: nanoid(), label: 'Vorlesungsverzeichnis', href: 'http://vvz.ethz.ch/Vorlesungsverzeichnis/sucheLehrangebot.view?lang=de&search=on&semkez=2022S&studiengangTyp=BSC&deptId=5&studiengangAbschnittId=96660&bereichAbschnittId=97277&unterbereichAbschnittId=97874&lerneinheitstitel=&lerneinheitscode=&famname=&rufname=&wahlinfo=&lehrsprache=&periodizitaet=&katalogdaten=&_strukturAus=on&search=Suchen' },
+    ],
+    scratchpad: '',
     /** @type {'all' | 'finished' | 'unfinished'} */
     filter: 'all',
   }),
@@ -222,7 +233,7 @@ export const useLinkStore = defineStore('links', {
       this.subjects = [...this.subjects, { ...subject, id: nanoid() }]
     },
 
-    addLink(subjectId: string, data: SecondaryLinks) {
+    addSubjectLink(subjectId: string, data: SecondaryLinks) {
       this.subjects = this.subjects.map((subject) => {
         if (subject.id === subjectId) {
           return {
@@ -234,7 +245,7 @@ export const useLinkStore = defineStore('links', {
       })
     },
 
-    removeLink(subjectId: string, linkId: string) {
+    removeSubjectLink(subjectId: string, linkId: string) {
       this.subjects = this.subjects.map((subject) => {
         if (subject.id === subjectId) {
           return {
@@ -268,6 +279,15 @@ export const useLinkStore = defineStore('links', {
         }
         return subject
       })
+    },
+
+    // add a link last
+    addLink(link: SecondaryLinks) {
+      this.links = [...this.links, { ...link }]
+    },
+    // add a link last
+    removeLink(id: string) {
+      this.links = this.links.filter((link) => link.id !== id)
     },
   },
   persist: true,
