@@ -351,7 +351,7 @@
                                     type="text"
                                     :name="`room-${entry.id}`"
                                     class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
-                                    placeholder="hg/hg-f-7"
+                                    placeholder="HG F7"
                                     aria-describedby="room-description"
                                   >
                                 </div>
@@ -375,7 +375,7 @@
                                     type="text"
                                     :name="`ov-room-${entry.id}`"
                                     class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
-                                    placeholder="hg/hg-f-5"
+                                    placeholder="HG F5"
                                     :aria-describedby="`ov-room-${entry.id}-optional`"
                                   >
                                 </div>
