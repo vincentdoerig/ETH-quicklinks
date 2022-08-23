@@ -2,7 +2,18 @@
   <section aria-labelledby="current-lecture">
     <div class="overflow-hidden bg-white rounded-lg shadow dark:bg-slate-800">
       <div
-        v-if="lecturesToday.length === 0 && otherEventsToday.length === 0"
+        v-if="todayIsHoliday()"
+        class="p-6 text-sm font-medium text-gray-900 dark:text-slate-200"
+      >
+        <h2 class="font-semibold text-2xl md:text-3xl">
+          {{ todayIsHoliday() }}
+        </h2>
+        <p class="mt-2 text-gray-500 dark:text-gray-400">
+          you most likely won't have any lectures today
+        </p>
+      </div>
+      <div
+        v-else-if="lecturesToday.length === 0 && otherEventsToday.length === 0"
         id="current-lecture"
         class="p-6 text-sm font-medium text-gray-900 dark:text-slate-200"
       >
@@ -12,10 +23,12 @@
         >Take a break, have some fun, do what you do best.</span>
       </div>
       <Lectures
+        v-if="!todayIsHoliday()"
         :lectures="lecturesToday"
         @toggle-stream="toggleStream"
       />
       <other-events
+        v-if="!todayIsHoliday()"
         :events="otherEventsToday"
         :class="[lecturesToday.length === 0 ? 'p-6' : 'pb-3 -mt-3 px-6']"
       />
@@ -28,6 +41,7 @@ import { defineComponent, reactive } from 'vue'
 import { useLinkStore } from '../store'
 import Lectures from './Lectures.vue'
 import OtherEvents from './OtherEvents.vue'
+import Holidays from '../templates/holidays'
 
 export default defineComponent({
   components: { Lectures, OtherEvents },
@@ -57,10 +71,24 @@ export default defineComponent({
       entry.showLive = !entry.showLive
     }
 
+    // determine if today is during a holiday
+    const todayIsHoliday = () => {
+      const today = new Date()
+      console.log(Holidays)
+      for (let holiday of Holidays) {
+        // determine if today is during a holiday
+        if((today.getTime() >= holiday.start.getTime() && today.getTime() <= holiday.end.getTime())) {
+          return holiday.name
+        }
+      }
+      return false
+    }
+
     return {
       entries,
       weekday,
       toggleStream,
+      todayIsHoliday,
     }
   },
   computed: {
