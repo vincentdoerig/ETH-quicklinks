@@ -1,5 +1,8 @@
 import { defineStore } from 'pinia'
-import { nanoid } from 'nanoid'
+import CSLinks from './templates/links/CS'
+import Sem1 from './templates/subjects/semester1'
+import Sem2 from './templates/subjects/semester2'
+import Sem3 from './templates/subjects/semester3'
 
 export interface Subject {
   id: string;
@@ -36,182 +39,28 @@ interface State {
 
 export const useLinkStore = defineStore('links', {
   state: (): State => ({
-    subjects: [
-      {
-        id: nanoid(5),
-        name: 'Algorithmen und Wahrschein­lichkeit',
-        lecturer: 'Prof. Angelika Steger, Prof. Emo Welzl',
-        mainLink: 'https://moodle-app2.let.ethz.ch/course/view.php?id=16841',
-        links: [
-          {
-            id: nanoid(5),
-            label: 'Moodle',
-            href: 'https://moodle-app2.let.ethz.ch/course/view.php?id=16841',
-          },
-          {
-            id: nanoid(5),
-            label: 'VVZ',
-            href: 'http://vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheit.view?lerneinheitId=157731&semkez=2022S&ansicht=LEHRVERANSTALTUNGEN&lang=de',
-          },
-        ],
-        schedule: [
-          {
-            id: nanoid(5),
-            startsAt: '14:15',
-            endsAt: '16:00',
-            room: 'HG F5',
-            secondRoom: 'HG F7',
-            roomCode: 'hg/hg-f-5',
-            day: 2,
-            type: 'lecture',
-          },
-          {
-            id: nanoid(5),
-            startsAt: '10:15',
-            endsAt: '12:00',
-            room: 'HG F5',
-            secondRoom: 'HG F7',
-            roomCode: 'hg/hg-f-5',
-            day: 4,
-            type: 'lecture',
-          },
-        ],
-      },
-      {
-        id: nanoid(5),
-        name: 'Digital Design and Computer Architecture',
-        lecturer: 'Prof. Onur Mutlu',
-        mainLink: 'https://safari.ethz.ch/digitaltechnik/doku.php',
-        links: [
-          {
-            id: nanoid(5),
-            label: 'Moodle',
-            href: 'https://moodle-app2.let.ethz.ch/course/view.php?id=16852',
-          },
-          {
-            id: nanoid(5),
-            label: 'YouTube',
-            href: 'https://www.youtube.com/c/OnurMutluLectures/videos',
-          },
-          {
-            id: nanoid(5),
-            label: 'VVZ',
-            href: 'http://vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheit.view?lerneinheitId=159117&semkez=2022S&ansicht=LEHRVERANSTALTUNGEN&lang=de',
-          },
-        ],
-        schedule: [
-          {
-            id: nanoid(5),
-            startsAt: '14:15',
-            endsAt: '16:00',
-            room: 'HG F5',
-            secondRoom: 'HG F7',
-            roomCode: 'hg/hg-f-5',
-            day: 4,
-            type: 'lecture',
-          },
-          {
-            id: nanoid(5),
-            startsAt: '14:15',
-            endsAt: '16:00',
-            room: 'HG F5',
-            secondRoom: 'HG F7',
-            roomCode: 'hg/hg-f-5',
-            day: 5,
-            type: 'lecture',
-          },
-        ],
-      },
-      {
-        id: nanoid(5),
-        name: 'Analysis I',
-        lecturer: 'Prof. Özlem Imamoglu',
-        mainLink: 'https://metaphor.ethz.ch/x/2022/fs/401-0212-16L/',
-        links: [
-          {
-            id: nanoid(5),
-            label: 'VVZ',
-            href: 'http://vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheit.view?semkez=2022S&ansicht=LEHRVERANSTALTUNGEN&lerneinheitId=158644&lang=de',
-          },
-        ],
-        schedule: [
-          {
-            id: nanoid(5),
-            startsAt: '14:15',
-            endsAt: '16:00',
-            room: 'HG F1',
-            secondRoom: 'HG F3',
-            roomCode: 'hg/hg-f-1',
-            day: 1,
-            type: 'lecture',
-          },
-          {
-            id: nanoid(5),
-            startsAt: '10:15',
-            endsAt: '12:00',
-            room: 'HG F1',
-            secondRoom: 'HG F3',
-            roomCode: 'hg/hg-f-1',
-            day: 3,
-            type: 'lecture',
-          },
-        ],
-      },
-      {
-        id: nanoid(5),
-        name: 'Parallele Programmierung',
-        lecturer: 'Prof. Torsten Hoefler, Dr. Barbara Solenthaler',
-        mainLink: 'https://spcl.inf.ethz.ch/Teaching/2022-pp/',
-        links: [
-          {
-            id: nanoid(5),
-            label: 'Moodle',
-            href: 'https://moodle-app2.let.ethz.ch/course/view.php?id=16717',
-          },
-          {
-            id: nanoid(5),
-            label: 'VVZ',
-            href: 'http://vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheit.view?lerneinheitId=157750&semkez=2022S&ansicht=LEHRVERANSTALTUNGEN&lang=de',
-          },
-        ],
-        schedule: [
-          {
-            id: nanoid(5),
-            startsAt: '10:15',
-            endsAt: '12:00',
-            room: 'HG F5',
-            secondRoom: 'HG F7',
-            roomCode: 'hg/hg-f-5',
-            day: 2,
-            type: 'lecture',
-          },
-          {
-            id: nanoid(5),
-            startsAt: '14:15',
-            endsAt: '16:00',
-            room: 'HG F5',
-            secondRoom: 'HG F7',
-            roomCode: 'hg/hg-f-5',
-            day: 3,
-            type: 'lecture',
-          },
-        ],
-      },
-    ],
-    links: [
-      { id: nanoid(5), label: 'myStudies', href: 'https://www.lehrbetrieb.ethz.ch/myStudies/studWillkommen.view' },
-      { id: nanoid(5), label: 'Live Lectures', href: 'https://video.ethz.ch/live/lectures/zentrum.html' },
-      { id: nanoid(5), label: 'Past Lectures', href: 'https://video.ethz.ch/lectures/d-infk/2021/autumn.html' },
-      { id: nanoid(5), label: 'VIS Exam Collection', href: 'https://exams.vis.ethz.ch/' },
-      { id: nanoid(5), label: 'PVW Skripts', href: 'https://vis.ethz.ch/de/services/pvw-scripts/' },
-      { id: nanoid(5), label: 'Vorlesungsverzeichnis', href: 'http://vvz.ethz.ch/Vorlesungsverzeichnis/sucheLehrangebot.view?lang=de&search=on&semkez=2022S&studiengangTyp=BSC&deptId=5&studiengangAbschnittId=96660&bereichAbschnittId=97277&unterbereichAbschnittId=97874&lerneinheitstitel=&lerneinheitscode=&famname=&rufname=&wahlinfo=&lehrsprache=&periodizitaet=&katalogdaten=&_strukturAus=on&search=Suchen' },
-    ],
+    subjects: [],
+    links: CSLinks as SecondaryLinks[],
     scratchpad: '',
     /** @type {'all' | 'finished' | 'unfinished'} */
     filter: 'all',
   }),
   getters: {},
   actions: {
+    useSemesterSubjectTemplate (template: string) {
+      switch (template) {
+        case 'semester1':
+          this.subjects = Sem1 as Subject[]
+          break
+        case 'semester2':
+          this.subjects = Sem2 as Subject[]
+          break
+        case 'semester3':
+          this.subjects = Sem3 as Subject[]
+          break
+      }
+    },
+
     updateSubject(data: Subject) {
       this.subjects = this.subjects.map((subject) => {
         if (subject.id === data.id) {
@@ -260,6 +109,12 @@ export const useLinkStore = defineStore('links', {
     addScheduleEntry(subjectId: string, data: ScheduleEntry) {
       this.subjects = this.subjects.map((subject) => {
         if (subject.id === subjectId) {
+          if (!subject.schedule) {
+            return {
+              ...subject,
+              schedule: [data],
+            }
+          }
           return {
             ...subject,
             schedule: [...subject.schedule, { ...data }],
@@ -291,7 +146,3 @@ export const useLinkStore = defineStore('links', {
     },
   },
 })
-
-// if (import.meta.hot) {
-//   import.meta.hot.accept(acceptHMRUpdate(useLinkStore, import.meta.hot))
-// }

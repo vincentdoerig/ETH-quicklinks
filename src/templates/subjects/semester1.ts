@@ -1,0 +1,165 @@
+import { nanoid } from 'nanoid'
+
+export default [
+  {
+    id: nanoid(5),
+    name: 'Diskrete Mathematik',
+    href: 'https://crypto.ethz.ch/teaching/DM21/',
+    links: [
+      {
+        id: nanoid(5),
+        label: 'Skript',
+        href: 'https://crypto.ethz.ch/teaching/DM21/ln/DM21_LN-tablet_8jk9jkr58uo2kq7mzarv.pdf',
+      },
+      { id: nanoid(5), label: 'Übungen', href: 'https://dm.crypto.ethz.ch/' },
+      {
+        id: nanoid(5),
+        label: 'VVZ',
+        href: 'http://vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheit.view?lerneinheitId=163342&semkez=2022W&ansicht=LEHRVERANSTALTUNGEN&lang=de',
+      },
+    ],
+    lecturer: 'Prof. Ueli Maurer',
+    mainLink: 'https://crypto.ethz.ch/teaching/DM22/',
+    schedule: [
+      {
+        id: nanoid(5),
+        day: 1,
+        startsAt: '14:15',
+        endsAt: '16:00',
+        room: 'ETA F5',
+        secondRoom: 'ETF E1',
+        type: 'lecture',
+        roomCode: 'eta/eta-f-5',
+      },
+      {
+        id: nanoid(5),
+        day: '3',
+        startsAt: '14:15',
+        endsAt: '16:00',
+        room: 'ETA F5',
+        secondRoom: 'ETF E1',
+        type: 'lecture',
+        roomCode: 'eta/eta-f-5',
+      },
+    ],
+  },
+  {
+    id: nanoid(5),
+    name: 'Lineare Algebra',
+    href: 'https://igl.ethz.ch/teaching/linear-algebra/la2021/',
+    links: [
+      {
+        id: nanoid(5),
+        label: 'VVZ',
+        href: 'http://vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheit.view?semkez=2022W&ansicht=LEHRVERANSTALTUNGEN&lerneinheitId=163637&lang=de',
+      },
+    ],
+    lecturer: 'Prof. Özlem Imamoglu, Prof. Olga Sorkine Hornung',
+    mainLink: 'https://igl.ethz.ch/teaching/linear-algebra/la2022/',
+    schedule: [
+      {
+        id: nanoid(5),
+        day: '3',
+        startsAt: '10:15',
+        endsAt: '12:00',
+        room: 'HG F7',
+        secondRoom: 'HG F5',
+        type: 'lecture',
+        roomCode: 'hg/hg-f-7',
+      },
+      {
+        id: nanoid(5),
+        day: '5',
+        startsAt: '10:15',
+        endsAt: '12:00',
+        room: 'HG F7',
+        secondRoom: 'HG F5',
+        type: 'lecture',
+        roomCode: 'hg/hg-f-7',
+      },
+    ],
+  },
+  {
+    id: nanoid(5),
+    name: 'Einführung in die Pro­gram­mie­rung',
+    href: 'https://www.lst.inf.ethz.ch/education/einfuehrung-in-die-programmierung-i--252-0027-.html#tab-accordion1-item4-content',
+    links: [
+      {
+        id: nanoid(5),
+        label: 'Übungen',
+        href: 'https://www.lst.inf.ethz.ch/education/archive/Fall2020/einfuehrung-in-die-programmierung-i--252-0027-.html',
+      },
+      {
+        id: nanoid(5),
+        label: 'VVZ',
+        href: 'http://vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheit.view?lerneinheitId=163718&semkez=2022W&ansicht=LEHRVERANSTALTUNGEN&lang=de',
+      },
+    ],
+    mainLink:
+      'https://www.lst.inf.ethz.ch/education/archive/Fall2020/einfuehrung-in-die-programmierung-i--252-0027-.html',
+    lecturer: 'Prof. Thomas Gross',
+    schedule: [
+      {
+        id: nanoid(5),
+        day: '2',
+        startsAt: '10:15',
+        endsAt: '12:00',
+        room: 'ML D28',
+        secondRoom: 'ML E12',
+        type: 'lecture',
+        roomCode: 'ml/ml-d-28',
+      },
+      {
+        id: nanoid(5),
+        day: '5',
+        startsAt: '08:15',
+        endsAt: '10:00',
+        room: 'ML D28',
+        secondRoom: 'ML E12',
+        type: 'lecture',
+        roomCode: 'ml/ml-d-28',
+      },
+    ],
+  },
+  {
+    id: nanoid(5),
+    name: 'Algorithmen und Daten­strukturen',
+    href: 'https://cadmo.ethz.ch/education/lectures/HS21/DA/index.html',
+    links: [
+      {
+        id: nanoid(5),
+        label: 'Übungen',
+        href: 'https://cadmo.ethz.ch/education/lectures/HS22/DA/index.html#Exercises',
+      },
+      {
+        id: nanoid(5),
+        label: 'Info VVZ',
+        href: 'http://vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheit.view?semkez=2022W&ansicht=LEHRVERANSTALTUNGEN&lerneinheitId=162076&lang=de',
+      },
+    ],
+    mainLink: 'https://cadmo.ethz.ch/education/lectures/HS22/DA/index.html',
+    lecturer: 'Prof. Markus Püschel, Prof. David Steurer',
+    schedule: [
+      {
+        id: nanoid(5),
+        day: '4',
+        startsAt: '10:15',
+        endsAt: '12:00',
+        room: 'HG F7',
+        secondRoom: 'HG F5',
+        type: 'lecture',
+        roomCode: 'hg/hg-f-7',
+      },
+      {
+        id: nanoid(5),
+        day: '4',
+        startsAt: '14:00',
+        endsAt: '15:00',
+        room: 'ETA F5',
+        secondRoom: '',
+        type: 'lecture',
+        roomCode: 'eta/eta-f-5',
+      },
+    ],
+  },
+]

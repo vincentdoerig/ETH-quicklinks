@@ -33,13 +33,12 @@
             <form class="mt-6">
               <div class="space-y-6">
                 <div>
-                  <h2 class="text-xl font-medium text-blue-gray-900">
+                  <h2 class="text-xl font-medium text-gray-900">
                     Subjects
                   </h2>
-                  <p class="mt-1 text-sm text-blue-gray-500">
-                    Add, edit and delete subjects or reset them to the default
-                    (ETH BCS FS22 BPB2). Everything is saved locally
-                    (localStorage).
+                  <p class="mt-1 text-sm text-gray-800">
+                    Add, edit and delete subjects or reset all. Everything is saved locally
+                    (<code class="text-sm text-gray-900">localStorage</code>).
                   </p>
                 </div>
 
@@ -67,8 +66,9 @@
                     No subjects
                   </h3>
                   <p class="mt-1 text-sm text-gray-500">
-                    Get started by adding a new subject.
+                    Get started by adding a new subject. Or choose one of the templates below.
                   </p>
+                  <SemesterTemplateSelect class="flex justify-center" />
                 </div>
 
                 <div
@@ -99,7 +99,7 @@
                       <button
                         type="button"
                         :title="`Delete &quot;${subject.name}&quot; (including its schedule entries).`"
-                        class="absolute top-0 right-0 inline-flex items-center p-1 text-red-800 bg-red-100 border rounded border-red-50 hover:bg-red-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-600"
+                        class="absolute top-0 right-0 z-30 inline-flex items-center p-1 text-red-800 bg-red-100 border rounded border-red-50 hover:bg-red-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-600"
                         @click="deleteSubject(subject.id)"
                       >
                         <svg
@@ -130,7 +130,7 @@
                             type="text"
                             :name="`name-${subject.id}`"
                             class="block w-full p-0 text-gray-900 placeholder-gray-500 border-0 focus:ring-0 sm:text-sm"
-                            placeholder="Analysis I"
+                            placeholder="Elektrodynamik"
                           >
                         </div>
                         <div
@@ -624,10 +624,12 @@ import { PlusSmIcon, DownloadIcon, UploadIcon } from '@heroicons/vue/solid'
 import { MoonIcon } from '@heroicons/vue/outline'
 import { useLinkStore } from '../store'
 import NavBar from '../components/NavBar.vue'
+import SemesterTemplateSelect from '../components/SemesterTemplateSelect.vue'
 
 export default defineComponent({
   components: {
     NavBar,
+    SemesterTemplateSelect,
     PlusSmIcon,
     MoonIcon,
     DownloadIcon,

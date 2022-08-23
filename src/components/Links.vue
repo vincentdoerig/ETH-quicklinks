@@ -29,7 +29,23 @@
                 </div>
               </div>
             </section>
-            <CurrentLecture />
+            <section v-if="subjects.length === 0">
+              <div class="overflow-hidden bg-gray-100 rounded-lg shadow-md dark:bg-slate-700">
+                <div
+                  class="p-6 text-sm font-medium text-gray-900 dark:text-slate-200"
+                >
+                  Welcome! You have not setup any subjects. Choose from the templates below or create your own schedules in the <router-link
+                    class="text-gray-700 dark:text-white underline"
+                    to="/settings"
+                  >
+                    settings
+                  </router-link>.
+
+                  <SemesterTemplateSelect />
+                </div>
+              </div>
+            </section>
+            <CurrentLecture v-if="subjects.length !== 0" />
             <!-- Quick links panel -->
             <section aria-labelledby="quick-links-title">
               <div class="overflow-hidden bg-gray-200 divide-y divide-gray-200 rounded-lg shadow dark:divide-slate-700 dark:bg-slate-700 sm:divide-y-0 sm:grid sm:grid-cols-2 sm:gap-px">
@@ -48,6 +64,7 @@
                     <h3 class="text-lg font-medium dark:text-slate-200">
                       <a
                         :href="subject.mainLink"
+                        target="_blank"
                         class="focus:outline-none"
                       >
                         <!-- Extend touch target to entire panel -->
@@ -100,6 +117,15 @@
                   >
                     Useful Links
                   </h2>
+                  <div
+                    v-if="subjects.length === 0 || links.length === 0"
+                    class="text-xs font-medium text-gray-500 dark:text-gray-400 inline-flex"
+                  >
+                    <QuestionMarkCircleIcon
+                      class="-ml-0.5 mr-1 h-4 w-4"
+                      aria-hidden="true"
+                    /> You can edit these links in the settings.
+                  </div>
                   <div class="flow-root mt-6">
                     <ul
                       role="list"
@@ -223,7 +249,7 @@
                       <label
                         for="comment"
                         class="block text-sm font-medium text-gray-700 dark:text-slate-400"
-                      >Jot down ideas, things you need to do, or anything else that comes to mind. <span class="text-xs text-gray-500 dark:text-slate-500">Saved automatically.</span> </label>
+                      >Jot down ideas, things you need to do, or anything else that comes to mind. <span class="text-xs text-gray-500 dark:text-slate-500">Saved automatically (locally).</span> </label>
                       <div class="mt-1">
                         <textarea
                           id="comment"
@@ -258,8 +284,11 @@
 <script>
 import { defineComponent } from 'vue'
 import { useLinkStore } from '../store'
+import { storeToRefs } from 'pinia'
 import CurrentLecture from './CurrentLecture.vue'
+import SemesterTemplateSelect from './SemesterTemplateSelect.vue'
 import Toggle from './Toggle.vue'
+import { QuestionMarkCircleIcon } from '@heroicons/vue/solid'
 
 const user = {
   name: '',
@@ -293,6 +322,8 @@ export default defineComponent({
   components: {
     CurrentLecture,
     Toggle,
+    SemesterTemplateSelect,
+    QuestionMarkCircleIcon,
   },
   props: {
     time: {
@@ -306,13 +337,14 @@ export default defineComponent({
   },
   setup() {
     const store = useLinkStore()
-    const links = store.links
+    const { subjects, links } = storeToRefs(store)
 
     return {
       user,
       exercises,
       links,
       store,
+      subjects,
     }
   },
 })
