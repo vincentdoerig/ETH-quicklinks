@@ -11,7 +11,10 @@
           class="font-light"
         >Take a break, have some fun, do what you do best.</span>
       </div>
-      <Lectures :lectures="lecturesToday" />
+      <Lectures
+        :lectures="lecturesToday"
+        @toggle-stream="toggleStream"
+      />
       <other-events
         :events="otherEventsToday"
         :class="[lecturesToday.length === 0 ? 'p-6' : 'pb-3 -mt-3 px-6']"
@@ -49,9 +52,15 @@ export default defineComponent({
     // return the current day of the week
     const weekday = new Date().getDay()
 
+    const toggleStream = (id) => {
+      const entry = entries.find(entry => entry.id === id)
+      entry.showLive = !entry.showLive
+    }
+
     return {
       entries,
       weekday,
+      toggleStream,
     }
   },
   computed: {

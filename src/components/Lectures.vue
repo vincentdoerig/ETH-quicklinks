@@ -103,7 +103,8 @@ export default {
       required: true,
     },
   },
-  setup() {
+  emits: ['toggle-stream'],
+  setup(props, { emit }) {
      // check if the lecture is currently live
     const isLive = (lecture) => {
       const now = new Date()
@@ -120,8 +121,7 @@ export default {
 
     // toggle the showLive property of a lecture
     const toggleStream = (id) => {
-      const index = entries.findIndex((l) => l.id === id)
-      entries[index].showLive = !entries[index].showLive
+      emit('toggle-stream', id)
     }
 
     return {isLive, toggleStream}
