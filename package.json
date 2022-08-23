@@ -6,40 +6,32 @@
     "build": "vite build",
     "start": "npm run dev",
     "lint": "eslint . --ext .js,.ts,.vue",
-    "lint:fix": "eslint . --ext .js,.ts,.vue --fix",
-    "prepare": "husky install"
+    "lint:fix": "eslint . --ext .js,.ts,.vue --fix"
   },
   "dependencies": {
-    "@headlessui/vue": "^1.4.3",
-    "@heroicons/vue": "^1.0.5",
-    "@tailwindcss/forms": "^0.4.0",
-    "@tailwindcss/typography": "^0.5.0",
-    "@vitejs/plugin-vue": "^1.10.2",
-    "googleapis": "^92.0.0",
-    "nanoid": "^3.3.0",
-    "pinia": "^2.0.11",
-    "vue": "^3.0.0",
-    "vue-router": "^4.0.2"
+    "@headlessui/vue": "^1.6.7",
+    "@heroicons/vue": "^1.0.6",
+    "@tailwindcss/forms": "^0.5.2",
+    "@tailwindcss/typography": "^0.5.4",
+    "@vitejs/plugin-vue": "^3.0.3",
+    "nanoid": "^4.0.0",
+    "pinia": "^2.0.20",
+    "vue": "^3.2.37",
+    "vue-router": "^4.1.4"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.6.0",
-    "@typescript-eslint/parser": "^5.6.0",
-    "@vue/compiler-sfc": "^3.2.24",
-    "@vue/eslint-config-typescript": "^9.1.0",
-    "autoprefixer": "^10.4.0",
+    "@typescript-eslint/eslint-plugin": "^5.34.0",
+    "@typescript-eslint/parser": "^5.34.0",
+    "@vue/compiler-sfc": "^3.2.37",
+    "@vue/eslint-config-typescript": "^11.0.0",
+    "autoprefixer": "^10.4.8",
     "babel-eslint": "^10.1.0",
-    "eslint": "^8.4.1",
-    "eslint-plugin-vue": "^8.2.0",
-    "husky": "^7.0.4",
-    "lint-staged": "^12.1.2",
-    "postcss": "^8.4.4",
-    "prettier": "^2.5.1",
-    "tailwindcss": "^3.0.1",
-    "typescript": "^4.5.3",
-    "vite": "^2.7.1"
-  },
-  "lint-staged": {
-    "*.{js,ts,vue}": "eslint --cache --fix",
-    "*.{js,css,md}": "prettier --write"
+    "eslint": "^8.22.0",
+    "eslint-plugin-vue": "^9.4.0",
+    "postcss": "^8.4.16",
+    "prettier": "^2.7.1",
+    "tailwindcss": "^3.1.8",
+    "typescript": "^4.7.4",
+    "vite": "^3.0.9"
   }
 }
