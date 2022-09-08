@@ -271,7 +271,7 @@
     <footer>
       <div class="max-w-3xl px-4 mx-auto sm:px-6 lg:px-8 lg:max-w-7xl">
         <div class="py-8 text-sm text-center text-gray-500 border-t border-gray-200 dark:text-slate-400 dark:border-slate-500 sm:text-left">
-          <span class="block sm:inline">&copy; {{ new Date().getFullYear() }} Vincent Dörig</span> <span class="block sm:inline">No guarantee for completeness or accuracy.</span> <a
+          <span class="block sm:inline">&copy; {{ new Date().getFullYear() }} Vincent Dörig</span> <span class="hidden sm:inline">&bullet;</span> <span class="block sm:inline">No guarantee for completeness or accuracy.</span> <a
             href="https://github.com/vincentdoerig/ETH-quicklinks"
             class="block text-xs text-gray-700 underline dark:text-slate-300 sm:inline"
           >Open Source &hearts;.</a>
