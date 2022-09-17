@@ -9,6 +9,11 @@ export default [
     links: [
       {
         id: nanoid(5),
+        label: 'Moodle',
+        href: 'https://moodle-app2.let.ethz.ch/course/view.php?id=18439',
+      },
+      {
+        id: nanoid(5),
         label: 'VVZ',
         href: 'http://vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheit.view?semkez=2022W&ansicht=LEHRVERANSTALTUNGEN&lerneinheitId=163672&lang=de',
       },
@@ -44,6 +49,11 @@ export default [
     links: [
       {
         id: nanoid(5),
+        label: 'Exercises hand-in',
+        href: 'https://sam-up.math.ethz.ch/',
+      },
+      {
+        id: nanoid(5),
         label: 'VVZ',
         href: 'http://vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheit.view?lerneinheitId=162699&semkez=2022W&ansicht=LEHRVERANSTALTUNGEN&lang=de',
       },
@@ -67,6 +77,11 @@ export default [
     lecturer: 'Prof. Ralf Hiptmair',
     mainLink: 'https://moodle-app2.let.ethz.ch/course/view.php?id=17727',
     links: [
+      {
+        id: nanoid(5),
+        label: 'Code Expert',
+        href: 'https://expert.ethz.ch/',
+      },
       {
         id: nanoid(5),
         label: 'VVZ',
@@ -93,6 +108,11 @@ export default [
     mainLink:
       'https://systems.ethz.ch/education/courses/2022-autumn/systems-programming-and-computer-architecture.html',
     links: [
+      {
+        id: nanoid(5),
+        label: 'Moodle',
+        href: 'https://moodle-app2.let.ethz.ch/course/view.php?id=18098',
+      },
       {
         id: nanoid(5),
         label: 'VVZ',
