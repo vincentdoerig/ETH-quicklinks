@@ -49,7 +49,7 @@ export default [
     links: [
       {
         id: nanoid(5),
-        label: 'Exercises hand-in',
+        label: 'Ex. hand-in',
         href: 'https://sam-up.math.ethz.ch/',
       },
       {
