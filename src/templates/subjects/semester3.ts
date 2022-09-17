@@ -106,7 +106,7 @@ export default [
     name: 'Systems Programming and Computer Architecture',
     lecturer: 'Prof. Timothy Roscoe',
     mainLink:
-      'https://systems.ethz.ch/education/courses/2022-autumn/systems-programming-and-computer-architecture.html',
+      'https://systems.ethz.ch/education/courses/2022-autumn-semester/systems-programming-and-computer-architecture-.html',
     links: [
       {
         id: nanoid(5),
