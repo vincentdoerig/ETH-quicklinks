@@ -79,17 +79,17 @@
                       {{ subject.lecturer }}
                     </h4>
 
-                    <div class="grid grid-cols-1 mt-5 divide-y divide-gray-200 dark:divide-slate-500 sm:grid-cols-3 sm:divide-y-0 sm:divide-x">
-                      <div
+                    <div class="mt-5 -mb-4 relative py-1 flex gap-4 justify-start overflow-x-scroll text-xs font-medium">
+                      <span
                         v-for="link in subject.links"
                         :key="link.label"
-                        class="py-4 text-xs font-medium text-center sm:py-0"
+                        class="mb-4"
                       >
                         <a
                           :href="link.href"
-                          class="relative px-2 py-0.5 text-blue-800 dark:text-blue-200 bg-blue-100 dark:bg-blue-900 rounded hover:bg-blue-200 hover:text-blue-900 hover:dark:bg-blue-700 hover:dark:text-blue-100"
+                          class="relative whitespace-nowrap px-2 py-0.5 text-blue-800 dark:text-blue-200 bg-blue-100 dark:bg-blue-900 rounded hover:bg-blue-200 hover:text-blue-900 hover:dark:bg-blue-700 hover:dark:text-blue-100"
                         >{{ link.label }}</a>
-                      </div>
+                      </span>
                     </div>
                   </div>
                   <span
