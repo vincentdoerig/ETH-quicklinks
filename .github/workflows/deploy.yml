@@ -18,7 +18,7 @@ jobs:
         run: npm ci
       - name: Run build task 
         env:
-          BASE_URL: ${{ secrets.VITE_BASE_URL }} # sets the base URL for the vite app
+          BASE: ${{ secrets.VITE_BASE_URL }} # sets the base URL for the vite app
         run: npm run build
       - name: Deploy to Server
         uses: easingthemes/ssh-deploy@v2.2.11
