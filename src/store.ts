@@ -3,6 +3,7 @@ import CSLinks from './templates/links/CS'
 import Sem1 from './templates/subjects/semester1'
 import Sem2 from './templates/subjects/semester2'
 import Sem3 from './templates/subjects/semester3'
+import Sem4 from './templates/subjects/semester4'
 
 export interface Subject {
   id: string;
@@ -57,6 +58,9 @@ export const useLinkStore = defineStore('links', {
           break
         case 'semester3':
           this.subjects = Sem3 as Subject[]
+          break
+        case 'semester4':
+          this.subjects = Sem4 as Subject[]
           break
       }
     },

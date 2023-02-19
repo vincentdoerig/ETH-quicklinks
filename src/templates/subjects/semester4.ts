@@ -16,7 +16,7 @@ export default [
     schedule: [
       {
         id: nanoid(5),
-        day: '1',
+        day: 1,
         startsAt: '14:15',
         endsAt: '16:00',
         room: 'HG E7',
@@ -26,7 +26,7 @@ export default [
       },
       {
         id: nanoid(5),
-        day: '5',
+        day: 5,
         startsAt: '10:15',
         endsAt: '12:00',
         room: 'HG F1',
@@ -51,7 +51,7 @@ export default [
     schedule: [
       {
         id: nanoid(5),
-        day: '3',
+        day: 3,
         startsAt: '14:15',
         endsAt: '16:00',
         room: 'ML D28',
@@ -61,7 +61,7 @@ export default [
       },
       {
         id: nanoid(5),
-        day: '5',
+        day: 5,
         startsAt: '08:15',
         endsAt: '10:00',
         room: 'ML D28',
@@ -86,7 +86,7 @@ export default [
     schedule: [
       {
         id: nanoid(5),
-        day: '2',
+        day: 2,
         startsAt: '10:15',
         endsAt: '12:00',
         room: '',
@@ -96,7 +96,7 @@ export default [
       },
       {
         id: nanoid(5),
-        day: '4',
+        day: 4,
         startsAt: '10:15',
         endsAt: '12:00',
         room: '',
@@ -115,7 +115,7 @@ export default [
     schedule: [
       {
         id: nanoid(5),
-        day: '3',
+        day: 3,
         startsAt: '08:15',
         endsAt: '10:00',
         room: 'ML D28',
