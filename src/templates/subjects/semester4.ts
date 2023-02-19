@@ -75,7 +75,7 @@ export default [
     id: nanoid(5),
     name: 'Formal Methods and Functional Programming',
     lecturer: 'Prof. Peter Müller and Prof. David Basin',
-    mainLink: '',
+    mainLink: 'https://infsec.ethz.ch/education/ss2023/fmfp.html',
     links: [
       {
         id: nanoid(5),
