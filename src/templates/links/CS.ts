@@ -14,7 +14,7 @@ export default [
   {
     id: nanoid(5),
     label: 'Past Lectures',
-    href: 'https://video.ethz.ch/lectures/d-infk/2022/autumn.html',
+    href: 'https://video.ethz.ch/lectures/d-infk/2023/spring.html',
   },
   {
     id: nanoid(5),
@@ -29,6 +29,6 @@ export default [
   {
     id: nanoid(5),
     label: 'Vorlesungsverzeichnis',
-    href: 'http://vvz.ethz.ch/Vorlesungsverzeichnis/sucheLehrangebot.view?lang=de&search=on&semkez=2022W&studiengangTyp=BSC&deptId=5&studiengangAbschnittId=&lerneinheitstitel=&lerneinheitscode=&famname=&rufname=&wahlinfo=&lehrsprache=&periodizitaet=&katalogdaten=&_strukturAus=on&search=Suchen',
+    href: 'https://www.vorlesungen.ethz.ch//Vorlesungsverzeichnis/sucheLehrangebot.view?lang=de&search=on&semkez=2023S&studiengangTyp=BSC&deptId=5&studiengangAbschnittId=&lerneinheitstitel=&lerneinheitscode=&famname=&rufname=&wahlinfo=&lehrsprache=&periodizitaet=&katalogdaten=&_strukturAus=on&search=Suchen',
   },
 ]
