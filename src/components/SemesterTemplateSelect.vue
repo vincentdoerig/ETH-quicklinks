@@ -16,6 +16,10 @@ const templateOptions = [
     label: 'Semester 3',
     value: 'semester3',
   },
+  {
+    label: 'Semester 4',
+    value: 'semester4',
+  },
 ]
 
 const setSubjects = (semester) => {
